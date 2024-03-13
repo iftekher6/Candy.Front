@@ -49,7 +49,7 @@ export const AdminLogin= ()=> {
     } catch (error) {
         setIsAdminAuthenticated(false)
       console.log('Error sending data:' , error)
-      console.log(data.message)
+      // console.log(data.message)
       // toast.error(error.response.data.message);
     //   setIsAuthenticated(false);
    
