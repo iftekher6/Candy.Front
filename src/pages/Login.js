@@ -2,7 +2,7 @@ import React, { useContext, useEffect} from 'react';
 import { useState } from 'react';
 import axios from 'axios'
 import { Navigate } from 'react-router-dom';
-import { AuthContext } from '..';
+import { AuthContext, server } from '..';
 // import { useCart } from '../context/CartContext';
 // imp
 
@@ -25,7 +25,7 @@ import { AuthContext } from '..';
     e.preventDefault();
     try {
      const {data} = await axios.post(
-        'http://localhost:8000/api/v1/users/login',
+        `${server}/api/v1/users/login`,
         {
           
           email,

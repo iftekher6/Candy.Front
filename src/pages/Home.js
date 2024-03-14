@@ -2,8 +2,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Card } from '../components'
 import { useTitle } from '../hooks/useTitle';
 import axios from 'axios'
-import { AuthContext } from '..';
+import { AuthContext, server } from '..';
 import { Navigate } from 'react-router-dom';
+
 
 
 export const Home = () => {
@@ -16,7 +17,7 @@ export const Home = () => {
   useEffect(()=>{
    
 
-  axios.get('http://localhost:8000/api/v1/products/get').then((response)=>{
+  axios.get(`${server}/api/v1/products/get`).then((response)=>{
     setProducts(response.data)
     console.log(response.data)
   })

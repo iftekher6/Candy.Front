@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import { server } from '..';
 
  export const Register = ()=> {
   const [name, setName] = useState("");
@@ -16,7 +17,7 @@ import { Navigate } from 'react-router-dom';
     e.preventDefault();
     try {
        await axios.post(
-        'http://localhost:8000/api/v1/users/post',
+        `${server}/api/v1/users/post`,
         {
           name,
           email,

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
-import { AuthContext } from '..';
+import { AuthContext, server } from '..';
 // import { AuthContext } from '..';
 // import { useCart } from '../context/CartContext';
 
@@ -42,7 +42,7 @@ const Form = () => {
     formDataToSend.append('image', formData.image);
 
     try {
-      await axios.post('http://localhost:8000/api/v1/products/upload', formDataToSend, {
+      await axios.post(`${server}/api/v1/products/upload`, formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
