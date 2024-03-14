@@ -25,7 +25,7 @@ export const AdminLogin= ()=> {
     e.preventDefault();
     try {
      const {data} = await axios.post(
-        `${server}/api/v1/admin/loginadmin`,
+        `${server}/admin/loginadmin`,
         {
           
           email,

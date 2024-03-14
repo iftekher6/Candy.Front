@@ -17,7 +17,7 @@ import { server } from '..';
     e.preventDefault();
     try {
        await axios.post(
-        `${server}/api/v1/users/post`,
+        `${server}/users/post`,
         {
           name,
           email,

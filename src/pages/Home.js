@@ -17,7 +17,7 @@ export const Home = () => {
   useEffect(()=>{
    
 
-  axios.get(`${server}/api/v1/products/get`).then((response)=>{
+  axios.get(`${server}/products/get`).then((response)=>{
     setProducts(response.data)
     console.log(response.data)
   })

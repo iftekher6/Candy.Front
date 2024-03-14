@@ -25,7 +25,7 @@ import { AuthContext, server } from '..';
     e.preventDefault();
     try {
      const {data} = await axios.post(
-        `${server}/api/v1/users/login`,
+        `${server}/users/login`,
         {
           
           email,
