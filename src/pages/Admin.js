@@ -55,7 +55,7 @@ const Form = () => {
 
   
   // if (!isAuthenticated) return <Navigate to={"/login"} />;
-  if(!IsAdminAuthenticated) return <Navigate to={'/adminlogin'} />
+  if(!IsAdminAuthenticated) return <Navigate to={'/login'} />
   return (
     
  

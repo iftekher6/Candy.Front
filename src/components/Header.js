@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { NavLinks } from './NavLinks'
 import { useCart } from '../context/CartContext'
 import axios from 'axios'
-import { AuthContext } from '..'
+import { AuthContext, server } from '..'
 
 
 
@@ -40,7 +40,7 @@ export const Header = () => {
         
         try {
            await axios.get(
-            'http://localhost:8000/api/v1/users/logout',
+            `${server}/users/logout`,
               
             {withCredentials: true}
             
