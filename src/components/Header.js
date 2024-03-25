@@ -16,7 +16,7 @@ export const Header = () => {
     const [open, setOpen] = useState(false);
     
 
-    const [darkMode, setDarkMode] = useState(JSON.parse(localStorage.getItem("darkMode")) || true);
+    const [darkMode, setDarkMode] = useState(JSON.parse(localStorage.getItem("darkMode")));
 
     useEffect(() => {
         localStorage.setItem("darkMode", JSON.stringify(darkMode));
