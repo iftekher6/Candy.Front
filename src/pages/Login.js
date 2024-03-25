@@ -74,7 +74,7 @@ import { AuthContext, server } from '..';
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 text-blue-900"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 placeholder='email' text-blue-900"
             />
           </div>
           <div className="mb-4">
@@ -86,7 +86,7 @@ import { AuthContext, server } from '..';
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 placeholder='password' text-blue-900"
             />
           </div>
           <button
