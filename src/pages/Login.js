@@ -66,7 +66,7 @@ import { AuthContext, server } from '..';
         <h2 className="text-3xl font-semibold text-gray-800 mb-6">Login</h2>
         <form onSubmit={submitHandler}>
           <div className="mb-4">
-            <label htmlFor="username" className="block text-gray-600 text-sm font-medium mb-2">
+            <label htmlFor="username" className="block text-gray-600 text-sm font-medium mb-2 ></div>">
               email
             </label>
             <input
@@ -74,11 +74,11 @@ import { AuthContext, server } from '..';
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 placeholder-pink-900 placeholder='your email'"
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="password" className="block text-gray-600 text-sm font-medium mb-2">
+            <label htmlFor="password" className="block text-gray-600 text-sm font-medium mb-2 ">
               Password
             </label>
             <input
@@ -86,7 +86,7 @@ import { AuthContext, server } from '..';
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 placeholder-pink-900 placeholder='your password'"
             />
           </div>
           <button
