@@ -6,7 +6,7 @@ import App from './App';
 import { ScrollToTop } from './components';
 import {CartProvider} from './context/CartContext';
 
-export const server = 'http://localhost:8000/api/v1'
+export const server = 'https://cottoncandy-backend.onrender.com/api/v1'
 
 export const AuthContext = createContext(null);
 
