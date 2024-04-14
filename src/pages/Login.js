@@ -1,4 +1,4 @@
-import React, { useContext, useEffect} from 'react';
+import React, { useContext} from 'react';
 import { useState } from 'react';
 import axios from 'axios'
 import { Navigate } from 'react-router-dom';
@@ -14,7 +14,7 @@ import { AuthContext, server } from '..';
   // const { isAuthenticated, setIsAuthenticated, loading, setLoading } =
     // useContext(Context); 
 
-    const {isAuthenticated, setIsAuthenticated,token,setToken} = useContext(AuthContext)
+    const {isAuthenticated, setIsAuthenticated,setToken} = useContext(AuthContext)
     // const [isLogged,setIsLogged]= useState({})
     
 

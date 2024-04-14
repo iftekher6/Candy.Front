@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, {  useState } from 'react';
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
-import { AuthContext, server } from '..';
+// import { Navigate } from 'react-router-dom';
+import { server } from '..';
 // import { AuthContext } from '..';
 // import { useCart } from '../context/CartContext';
 
@@ -16,7 +16,7 @@ const Form = () => {
   });
   // const [isAuthenticated, setIsAuthenticated] = useState(false)
   // const {isAuthenticated} = useContext(AuthContext)
-  const {IsAdminAuthenticated, setIsAdminAuthenticated} = useContext(AuthContext)
+  // const {IsAdminAuthenticated, setIsAdminAuthenticated} = useContext(AuthContext)
   
   const handleChange = (e) => {
     setFormData({

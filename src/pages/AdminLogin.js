@@ -11,7 +11,7 @@ export const AdminLogin= ()=> {
   // const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [admin, setAdmin] = useState(false)
+  // const [admin, setAdmin] = useState(false)
   const {IsAdminAuthenticated,setIsAdminAuthenticated} = useContext(AuthContext)
   // const [isAuthenticated, setIsAuthenticated] = useState(false)
   // const { isAuthenticated, setIsAuthenticated, loading, setLoading } =

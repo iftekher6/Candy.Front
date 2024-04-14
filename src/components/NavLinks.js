@@ -6,7 +6,7 @@ export const NavLinks = () => {
     const [heading, setHeading] = useState("");
     const [subHeading, setSubHeading] = useState("");
     
-  return (
+  return ( 
     <>
     {
         links.map((link) => (

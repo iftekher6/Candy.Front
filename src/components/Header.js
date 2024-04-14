@@ -86,25 +86,25 @@ export const Header = () => {
             
             <ul className='hhmd:flex hidden uppercase font-medium  text-ccpurple dark:text-cclev items-center gap-2 hhmd:text-sm hhlg:text-base'>
                 <li>
-                    <NavLink to="/" className='py-7 px-3 inline-block'>
+                      <NavLink to="/" className='py-7 px-3 inline-block hover:text-neutral-900 focus:text-neutral-900'>
                         Home
                     </NavLink>
                 </li>
                 
-                <NavLinks />
+                {/* <NavLinks /> */}
                 
                 <li>
-                    <NavLink to="/review" className='py-7 px-3 inline-block'>
+                    <NavLink to="/review" className='py-7 px-3 inline hover:text-neutral-900 focus:text-neutral-900  '>
                         Review
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/about" className='py-7 px-3 inline-block'>
+                    <NavLink to="/about" className='py-7 px-3 inline-block hover:text-neutral-900 focus:text-neutral-900'>
                         About
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/cart" className='py-7 px-3 inline-block'>
+                    <NavLink to="/cart" className='py-7 px-3 inline-block hover:text-neutral-900 focus:text-neutral-900/'>
                         
                      Cart: {isAuthenticated? cartList.length: 0}
                             
@@ -117,7 +117,7 @@ export const Header = () => {
             Logout
           </button>
         ) : (
-          <Link to={"/login"}>Login</Link>
+          <Link className='py-7 px-3 inline-block hover:text-neutral-900 focus:text-neutral-900' to={"/login"}>Login</Link>
         )}
 
                 </li>
@@ -169,6 +169,16 @@ export const Header = () => {
                 <NavLink to="/cart" className='py-2 px-3 inline-block'>
                         Cart : {cartList.length}
                     </NavLink>
+                </li>
+                <li>
+                {isAuthenticated ? (
+          <button onClick={logoutHandler} className="btn">
+            Logout
+          </button>
+        ) : (
+          <NavLink className='py-2 px-3 inline-block' to={"/login"}>Login</NavLink>
+        )}
+
                 </li>
                 <div className="py-5">
                     <div className="px-6 py-4">
