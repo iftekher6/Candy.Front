@@ -2,6 +2,7 @@ import React from 'react'
 import { useTitle } from '../hooks/useTitle';
 import Rifad from '../assets/Rifad.png'
 import Sharika from '../assets/Sharika.png'
+
 import { Link } from 'react-router-dom';
 
 
@@ -14,6 +15,7 @@ export const About = () => {
             <div className="max-w-full border rounded p-3 m-2">
               <div className='flex mx-auto'>
                 <div className='basis-[30%]'>
+                  
                   <img className=" rounded-md min-w-80 min-h-80 object-cover object-center" src={Sharika} alt=""/>
                   <h1 className="text-2xl mt-5 abso top-0">Sumaiya Fahmida Sharika</h1>
                   <p className="sm">Owner</p>
@@ -81,5 +83,3 @@ export const About = () => {
 }
 
 
-// <h1 className="text-2xl mt-5">Sumaiya Fahmida Sharika</h1>
-//                 <p className="sm">Botanic Graduate from Bodrunnesa</p>

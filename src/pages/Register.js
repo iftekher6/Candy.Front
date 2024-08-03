@@ -27,7 +27,7 @@ import { server } from '..';
           headers: {
             "Content-Type": "application/json",
           },
-          // withCredentials: true,
+          withCredentials: true,
         }
       );
       console.log('data sent success')
@@ -93,7 +93,7 @@ import { server } from '..';
         </form>
         <p className="mt-4 text-sm text-gray-600">
            
-          <a href="/login" className="text-blue-500 hover:underline">
+          <a href="/Login" className="text-blue-500 hover:underline">
            Login
           </a>
         </p>
@@ -103,3 +103,6 @@ import { server } from '..';
 }
 
 // export default App;
+
+
+

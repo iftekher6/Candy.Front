@@ -6,18 +6,29 @@ import { NavLinks } from './NavLinks'
 import { useCart } from '../context/CartContext'
 import axios from 'axios'
 import { AuthContext, server } from '..'
+import loginIcon from '../assets/login.png'
+import { Login } from '../pages/Login'
+import { Cart } from '../pages'
 
 
 
 export const Header = () => {
     
     const {cartList} = useCart();
-    const {isAuthenticated,setIsAuthenticated} = useContext(AuthContext)
+    const {isAuthenticated,setIsAuthenticated , auth} = useContext(AuthContext)
     const [open, setOpen] = useState(false);
-    
-
+    const {searchInput, setSearchInput} = useContext(AuthContext)
+    const [showLogin, setShowLogin] = useState(false)
     const [darkMode, setDarkMode] = useState(JSON.parse(localStorage.getItem("darkMode")));
 
+    const hoverMouse = ()=>{
+        setShowLogin(true)
+    }
+   
+    const unHoverMouse = ()=>{
+        setShowLogin(false)
+    }
+   
     useEffect(() => {
         localStorage.setItem("darkMode", JSON.stringify(darkMode));
         
@@ -59,8 +70,15 @@ export const Header = () => {
        
       };
 
+
+      const searchHandler= (e)=>{
+        const {name, value} = e.target
+        setSearchInput(value)
+    
+   
+      }
   return (
-    <nav className='bg-ccpink dark:bg-ccpurple rounded-b-2xl shadow-lg shadow-cclev dark:shadow-ccpurple border-b-2 border-ccpink dark:border-ccpurple '>
+    <nav className='bg-ccpink relative dark:bg-ccpurple rounded-b-2xl shadow-lg shadow-cclev dark:shadow-ccpurple border-b-2 border-ccpink dark:border-ccpurple '>
         <div className='flex item-center justify-around'>
             <div className='z-50 p-5 hhmd:w-auto w-full flex justify-between'>
                 <div className='flex items-center'>
@@ -86,11 +104,15 @@ export const Header = () => {
             
             <ul className='hhmd:flex hidden uppercase font-medium  text-ccpurple dark:text-cclev items-center gap-2 hhmd:text-sm hhlg:text-base'>
                 <li>
-                      <NavLink to="/" className='py-7 px-3 inline-block hover:text-neutral-900 focus:text-neutral-900'>
+                       <NavLink to="/"  className='py-7 px-3 inline-block hover:text-neutral-900  focus:text-neutral-900'>
                         Home
-                    </NavLink>
+                    </NavLink> 
+        
                 </li>
-                
+                {
+                    showLogin && (<Login hover={hoverMouse} unHover={unHoverMouse}/>)
+                }
+             
                 {/* <NavLinks /> */}
                 
                 <li>
@@ -104,9 +126,16 @@ export const Header = () => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/cart" className='py-7 px-3 inline-block hover:text-neutral-900 focus:text-neutral-900/'>
-                        
-                     Cart: {isAuthenticated? cartList.length: 0}
+                    <NavLink to="/cart" className=' relative flex py-7 px-3  hover:text-neutral-900 focus:text-neutral-900/'>
+                    <svg class=" w-6 h-6 text-gray-800 dark:text-white relative" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className='mt-[-2px] mr-[5px]' viewBox="0 0 22 24">
+  <path fill-rule="evenodd" d="M4 4a1 1 0 0 1 1-1h1.5a1 1 0 0 1 .979.796L7.939 6H19a1 1 0 0 1 .979 1.204l-1.25 6a1 1 0 0 1-.979.796H9.605l.208 1H17a3 3 0 1 1-2.83 2h-2.34a3 3 0 1 1-4.009-1.76L5.686 5H5a1 1 0 0 1-1-1Z" clip-rule="evenodd"/>
+</svg>
+
+  <span className='bg-red-800 text-white font-mono absolute top-[20px] left-[28px] w-4 h-[1.1rem]  flex justify-center items-center  rounded-full  '>{cartList.length}</span>
+
+ 
+  
+                     
                             
                         
                     </NavLink>
@@ -117,7 +146,10 @@ export const Header = () => {
             Logout
           </button>
         ) : (
-          <Link className='py-7 px-3 inline-block hover:text-neutral-900 focus:text-neutral-900' to={"/login"}>Login</Link>
+          <Link onMouseDown={()=> setShowLogin(true)} onMouseEnter={()=> setShowLogin(true)} onMouseLeave={()=> setShowLogin(false)} className='flex py-7 px-3  hover:text-neutral-900 focus:text-neutral-900' to={"/login"}><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className='mt-[-2px]' viewBox="0 0 24 24">
+          <path fill-rule="evenodd" d="M9 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4H7Zm8-1a1 1 0 0 1 1-1h1v-1a1 1 0 1 1 2 0v1h1a1 1 0 1 1 0 2h-1v1a1 1 0 1 1-2 0v-1h-1a1 1 0 0 1-1-1Z" clip-rule="evenodd"/>
+        </svg> <span className='ml-[5px]'>Login</span>
+        </Link>
         )}
 
                 </li>
@@ -139,9 +171,9 @@ export const Header = () => {
                 {/* button replaced with search bar */}
                 <div className="px-6 py-4">
                     <span className="sr-only">Search icon</span>
-                    <form >
-                        <input type="text" id="search-navbar" name="search" className="block w-20 p-2 hhmd:w-40 text-ccpurple border border-ccpurple rounded-lg bg-ccbg focus:ring-ccpurple focus:border-ccpurple dark:bg-zinc-900 dark:border-cclev dark:placeholder-cclev dark:text-cclev dark:focus:ring-cclev dark:focus:border-cclev" placeholder="Search..." autoComplete="off"/>
-                    </form>
+                    {/* <form onSubmit={searchHandler}> */}
+                        <input type="text" value={searchInput} onChange={searchHandler} name="searchh" className="block w-20 p-2 hhmd:w-40 text-ccpurple border border-ccpurple rounded-lg bg-ccbg focus:ring-ccpurple focus:border-ccpurple dark:bg-zinc-900 dark:border-cclev dark:placeholder-cclev dark:text-cclev dark:focus:ring-cclev dark:focus:border-cclev" placeholder="Search..." autoComplete="off"/>
+                    {/* </form> */}
                 </div>
                 {/* {Ends here} */}
 
@@ -167,25 +199,25 @@ export const Header = () => {
                 </li>
                 <li>
                 <NavLink to="/cart" className='py-2 px-3 inline-block'>
-                        Cart : {cartList.length}
+                         Cart : {cartList.length}
                     </NavLink>
                 </li>
                 <li>
-                {isAuthenticated ? (
+                {auth?.accessToken ? (
           <button onClick={logoutHandler} className="btn">
             Logout
           </button>
         ) : (
-          <NavLink className='py-2 px-3 inline-block' to={"/login"}>Login</NavLink>
+          <NavLink className='py-2 px-3 inline-block' to={"/login"}><img src={loginIcon} /></NavLink>
         )}
 
                 </li>
                 <div className="py-5">
                     <div className="px-6 py-4">
                         <span className="sr-only">Search icon</span>
-                        <form >
-                            <input type="text" id="search-navbar" name="search" className="block w-full p-2 text-stone-900 border border-stone-300 rounded-lg bg-stone focus:ring-myyel focus:border-myyel dark:bg-stone-700 dark:border-stone-600 dark:placeholder-stone-400 dark:text-stone-200 dark:focus:ring-myyel dark:focus:border-myyel" placeholder="Search..." autoComplete="off"/>
-                        </form>
+                        {/* <form onChange={searchHandler}> */}
+                            <input type="text" value={searchInput} onChange={searchHandler} name="searchh" className="block w-full p-2 text-stone-900 border border-stone-300 rounded-lg bg-stone focus:ring-myyel focus:border-myyel dark:bg-stone-700 dark:border-stone-600 dark:placeholder-stone-400 dark:text-stone-200 dark:focus:ring-myyel dark:focus:border-myyel" placeholder="Search..." autoComplete="off"/>
+                        {/* </form> */}
                     </div>
                 </div>
             </ul>

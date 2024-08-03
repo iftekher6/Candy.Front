@@ -6,7 +6,7 @@ import App from './App';
 import { ScrollToTop } from './components';
 import {CartProvider} from './context/CartContext';
 
-export const server = 'https://cottoncandy-backend.onrender.com/api/v1'
+export const server = 'http://localhost:8000/api/v1'
 
 export const AuthContext = createContext(null);
 
@@ -16,6 +16,9 @@ const AppWrapper = () => {
   const [IsAdminAuthenticated, setIsAdminAuthenticated] = useState(false)
   const [user, setUser] = useState({});
   const [token,setToken] = useState('')
+  const [auth, setAuth]= useState({})
+  const [searchInput, setSearchInput] = useState('')
+  const [productDetails, setProductDetails] = useState({})
 
 
   return (
@@ -32,7 +35,12 @@ const AppWrapper = () => {
         IsAdminAuthenticated,
         setIsAdminAuthenticated,
         token,
-        setToken
+        setToken,
+        auth,
+        setAuth,
+        searchInput, 
+        setSearchInput,
+        productDetails, setProductDetails
       }}
     >
       <App />
