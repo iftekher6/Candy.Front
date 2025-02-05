@@ -7,7 +7,12 @@ import { useCart } from '../context/CartContext'
 import axios from 'axios'
 import { AuthContext, server } from '..'
 import loginIcon from '../assets/login.png'
-import { Login } from '../pages/Login'
+import loginUserIcon from '../assets/loginUserIcon.svg'
+import darkToggler from '../assets/darkmodetoggler.svg'
+import cart from '../assets/cart.svg'
+import Wishlist from '../assets/Wishlist.svg'
+import searchIcon from '../assets/searchIcon.svg'
+// import { Login } from '../pages/Login'
 import { Cart } from '../pages'
 
 
@@ -21,6 +26,9 @@ export const Header = () => {
     const [showLogin, setShowLogin] = useState(false)
     const [darkMode, setDarkMode] = useState(JSON.parse(localStorage.getItem("darkMode")));
 
+    const [isTopHeaderHidden, setIsTopHeaderHidden] = useState(false);
+    const [isMainHeaderFixed, setIsMainHeaderFixed] = useState(false);
+  
     const hoverMouse = ()=>{
         setShowLogin(true)
     }
@@ -77,68 +85,66 @@ export const Header = () => {
     
    
       }
+
+      useEffect(() => {
+        const handleScroll = () => {
+          const scrollY = window.scrollY;
+    
+          // When the page scrolls past 100px, hide the top header
+          setIsTopHeaderHidden(scrollY > 100);
+    
+          // Fix the main header when it reaches the top of the viewport
+          setIsMainHeaderFixed(scrollY > 50);
+        };
+    
+        window.addEventListener("scroll", handleScroll);
+    
+        return () => {
+          window.removeEventListener("scroll", handleScroll);
+        };
+      }, []);
   return (
-    <nav className='bg-ccpink relative dark:bg-ccpurple rounded-b-2xl shadow-lg shadow-cclev dark:shadow-ccpurple border-b-2 border-ccpink dark:border-ccpurple '>
-        <div className='flex item-center justify-around'>
-            <div className='z-50 p-5 hhmd:w-auto w-full flex justify-between'>
+    <nav className='header h-[2000px]'>
+        <div className={` bg-ccpurple w-full flex justify-center items-center p-2   ${isTopHeaderHidden? 'opacity-0 transition-all duration-[2s] ease' : 'opacity-100 transition-all duration-[3s] ease'} `} >
+            <p className='text-[#FAFAFA] text-[14px]'>Summer Sale For All T-Shirt And Free Express Delivery - OFF 50%! <span><button className='border-b ml-2'>ShopNow</button></span></p>
+        </div>
+      {/* Parent DIV of MAIN NAVBAR */}
+        <div className={` ${
+          isMainHeaderFixed ? "fixed top-0 animate-slideDown w-full " : "transition-all duration-[2s] ease  relative "
+        } h-[70px] flex justify-around items-center  bg-ccpink dark:bg-[#7D3261] rounded-b-2xl shadow-lg shadow-cclev dark:shadow-ccpurple border-b-2 border-ccpink dark:border-ccpurple  `}>
+            {/* <div className='z-50 p-5 hhmd:w-auto w-full flex justify-between'> */}
                 <div className='flex items-center'>
                 <Link to="/" className='object-cover'> 
                     {darkMode? <img src={LogoD} className="h-10 mx-3 hhmd:cursor-pointer" alt="CottonCandyLogo" /> : <img src={LogoL} className="h-10 mx-3 hhmd:cursor-pointer" alt="CottonCandyLogo" /> }
                 </Link>
                 </div>
                 
-                
-                <button onClick={() => setOpen(!open)} data-collapse-toggle="navbar-dropdown" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-ccpurple rounded-full hhmd:hidden hover:bg-ccbg focus:outline-none focus:ring-2 focus:ring-ccpurple dark:text-cclev dark:hover:bg-ccpink dark:focus:ring-cclev " aria-controls="navbar-dropdown" aria-expanded="false">
-                    <span className="sr-only">Open main menu</span>
-                    <svg className="w-5 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
-                    </svg>
-                </button>
-                
-
-            
-
-
-
-            </div>
-            
-            <ul className='hhmd:flex hidden uppercase font-medium  text-ccpurple dark:text-cclev items-center gap-2 hhmd:text-sm hhlg:text-base'>
-                <li>
-                       <NavLink to="/"  className='py-7 px-3 inline-block hover:text-neutral-900  focus:text-neutral-900'>
-                        Home
-                    </NavLink> 
+                {/* search bar */}
+                <div className="bg-white rounded-[10px] w-[370px] px-4 py-3 flex justify-start items-center  overflow-hidden gap-3">
+                    {/* <span className="sr-only">Search icon</span> */}
+                    {/* <form onSubmit={searchHandler}> */}
+                        <img src={searchIcon} />
+                        <input type="text" value={searchInput} onChange={searchHandler} name="searchh" className="w-full outline-none " placeholder="Search..." autoComplete="off"/>
+                    {/* </form> */}
+                </div>
+                {/* {Ends here} */}
+      
+               
         
-                </li>
-                {
-                    showLogin && (<Login hover={hoverMouse} unHover={unHoverMouse}/>)
-                }
-             
+            <ul className='hhmd:flex flex-shrink-0  hidden uppercase font-medium  text-ccpurple dark:text-cclev items-center gap-6 hhmd:text-sm hhlg:text-base'>
+           
+              
                 {/* <NavLinks /> */}
                 
                 <li>
-                    <NavLink to="/review" className='py-7 px-3 inline hover:text-neutral-900 focus:text-neutral-900  '>
-                        Review
-                    </NavLink>
+                    <NavLink to="/cart" className=' relative flex  hover:text-neutral-900 focus:text-neutral-900/'>
+                      <img src={Wishlist} />
+                 </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/about" className='py-7 px-3 inline-block hover:text-neutral-900 focus:text-neutral-900'>
-                        About
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/cart" className=' relative flex py-7 px-3  hover:text-neutral-900 focus:text-neutral-900/'>
-                    <svg class=" w-6 h-6 text-gray-800 dark:text-white relative" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className='mt-[-2px] mr-[5px]' viewBox="0 0 22 24">
-  <path fill-rule="evenodd" d="M4 4a1 1 0 0 1 1-1h1.5a1 1 0 0 1 .979.796L7.939 6H19a1 1 0 0 1 .979 1.204l-1.25 6a1 1 0 0 1-.979.796H9.605l.208 1H17a3 3 0 1 1-2.83 2h-2.34a3 3 0 1 1-4.009-1.76L5.686 5H5a1 1 0 0 1-1-1Z" clip-rule="evenodd"/>
-</svg>
-
-  <span className='bg-red-800 text-white font-mono absolute top-[20px] left-[28px] w-4 h-[1.1rem]  flex justify-center items-center  rounded-full  '>{cartList.length}</span>
-
- 
-  
-                     
-                            
-                        
-                    </NavLink>
+                    <NavLink to="/cart" className=' relative flex   hover:text-neutral-900 focus:text-neutral-900/'>
+                      <img src={cart} />
+                 </NavLink>
                 </li>
                 <li>
                 {isAuthenticated ? (
@@ -146,83 +152,24 @@ export const Header = () => {
             Logout
           </button>
         ) : (
-          <Link onMouseDown={()=> setShowLogin(true)} onMouseEnter={()=> setShowLogin(true)} onMouseLeave={()=> setShowLogin(false)} className='flex py-7 px-3  hover:text-neutral-900 focus:text-neutral-900' to={"/login"}><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className='mt-[-2px]' viewBox="0 0 24 24">
-          <path fill-rule="evenodd" d="M9 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4H7Zm8-1a1 1 0 0 1 1-1h1v-1a1 1 0 1 1 2 0v1h1a1 1 0 1 1 0 2h-1v1a1 1 0 1 1-2 0v-1h-1a1 1 0 0 1-1-1Z" clip-rule="evenodd"/>
-        </svg> <span className='ml-[5px]'>Login</span>
+          <Link className='flex py-2  px-3 bg-[#7D3261] rounded-[8px] hover:text-neutral-900 focus:text-neutral-900' to={"/login"}><img src={loginUserIcon}/> <span className='ml-[5px] text-white text-[14px] font-poppins font-normal'>Login</span>
         </Link>
         )}
 
                 </li>
             </ul>
+         
+                <div>
+                <button onClick={() => setDarkMode(!darkMode)} >
+                   <img src={darkToggler} />
+                   
+                </button> 
+                </div>
+                     
+              </div>
 
       
-            <div className='flex hhmd:order-2'>
-                
-                <button onClick={() => setDarkMode(!darkMode)} className="focus:ring-2 rounded-full focus:ring-ccpurple  dark:focus:ring-ccpink  hover:bg-ccbg  dark:hover:bg-ccpink p-2 m-auto ">
-                    {darkMode ? (
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-sun text-cclev" viewBox="0 0 16 16">
-                        <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
-                    </svg>) : (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-moon-stars text-ccpurple" viewBox="0 0 16 16">
-                        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"/>
-                        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
-                    </svg>) }
-                </button> 
 
-                {/* button replaced with search bar */}
-                <div className="px-6 py-4">
-                    <span className="sr-only">Search icon</span>
-                    {/* <form onSubmit={searchHandler}> */}
-                        <input type="text" value={searchInput} onChange={searchHandler} name="searchh" className="block w-20 p-2 hhmd:w-40 text-ccpurple border border-ccpurple rounded-lg bg-ccbg focus:ring-ccpurple focus:border-ccpurple dark:bg-zinc-900 dark:border-cclev dark:placeholder-cclev dark:text-cclev dark:focus:ring-cclev dark:focus:border-cclev" placeholder="Search..." autoComplete="off"/>
-                    {/* </form> */}
-                </div>
-                {/* {Ends here} */}
-
-            </div>
-            
-            {/* Mobile Nav */}
-            <ul className={`hhmd:hidden bg-white dark:bg-black fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4 duration-500 ${open ? "left-0" : "left-[-100%]"}`}>
-                <li>
-                    <NavLink to="/" className="py-2 pt-12 px-3 inline-block">
-                    Home
-                    </NavLink>
-                </li>
-                <NavLinks />
-                <li>
-                    <NavLink to="/review" className='py-2 px-3 inline-block'>
-                        Review
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/about" className='py-2 px-3 inline-block'>
-                        About
-                    </NavLink>
-                </li>
-                <li>
-                <NavLink to="/cart" className='py-2 px-3 inline-block'>
-                         Cart : {cartList.length}
-                    </NavLink>
-                </li>
-                <li>
-                {auth?.accessToken ? (
-          <button onClick={logoutHandler} className="btn">
-            Logout
-          </button>
-        ) : (
-          <NavLink className='py-2 px-3 inline-block' to={"/login"}><img src={loginIcon} /></NavLink>
-        )}
-
-                </li>
-                <div className="py-5">
-                    <div className="px-6 py-4">
-                        <span className="sr-only">Search icon</span>
-                        {/* <form onChange={searchHandler}> */}
-                            <input type="text" value={searchInput} onChange={searchHandler} name="searchh" className="block w-full p-2 text-stone-900 border border-stone-300 rounded-lg bg-stone focus:ring-myyel focus:border-myyel dark:bg-stone-700 dark:border-stone-600 dark:placeholder-stone-400 dark:text-stone-200 dark:focus:ring-myyel dark:focus:border-myyel" placeholder="Search..." autoComplete="off"/>
-                        {/* </form> */}
-                    </div>
-                </div>
-            </ul>
-
-        </div>
     </nav>
   )
 }

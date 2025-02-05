@@ -115,7 +115,7 @@ export const Home = () => {
  return (
   <>
      <main className='max-w-7xl m-auto py-24 '>
-      <section className='flex justify-center flex-wrap'>
+      <section className='flex justify-center flex-wrap '>
      
         {!searchInput ? products.map((product) =>(
         
@@ -132,7 +132,7 @@ export const Home = () => {
       </section>
       
        
-      {loading&& <img src={spinner} className='h-[200px] w-[200px] mx-auto' />}
+      {/* {loading&& <img src={spinner} className='h-[200px] w-[200px] mx-auto' />} */}
     
     </main>
     

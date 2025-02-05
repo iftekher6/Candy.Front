@@ -32,7 +32,7 @@ const handleOnChange = (e) =>{
   <>
   
   <input className="ml-5" type="search" value={searchValue} onChange={handleOnChange} />  
- <label className="ml-2">Search</label>
+ <label className="ml-2 ">Search</label>
 {findData.map(value=> (
     <p key={value.id}>
         {value.title}
