@@ -64,16 +64,13 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
     }
   };
 
-
-
-
   // if (isAuthenticated) return <Navigate to={"/"} />;
     return (
-    <div  className="min-h-screen  bg-[#fff] flex justify-center items-center gap-3  ">
-      <div>
+    <div  className="min-h-screen w-full md:max-w-5xl  mx-auto flex flex-col md:flex-row justify-center items-center mb-6 ">
+      <div className='w-1/2'>
         <img src={loginIcon} width={450} />
       </div>
-      <div className="max-w-md w-full p-6 bg-white rounded-md shadow-md">
+      <div className="w-full md:w-1/2  p-6 bg-white rounded-md shadow-md ">
         <h2 className="text-3xl font-semibold font-inter text-gray-800 mb-6">Login</h2>
         <p>Enter your details below</p>
         <form onSubmit={submitHandler}>
