@@ -47,11 +47,12 @@ module.exports = {
     },
     fontFamily:{
       'aurora':['Aurora Regular','san-serif'],
-      // 'poppins' : ['Po']
-      poppins: ['Poppins', 'sans-serif'], // Add Poppins here
+      // sans: ['Inter', 'Poppins', ...fontFamily.sans],
+      poppins: ['Poppins', 'sans-serif'],
+      inter: ['Inter', 'sans-serif'],
     }
     },
   },
-  plugins: [],
+  plugins: ['@tailwindcss/typography'],
 }
 

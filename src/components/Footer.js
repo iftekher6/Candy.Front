@@ -1,25 +1,66 @@
 import React from 'react'
+import logo from '../assets/CCLogoLight.png'
+import facebook from '../assets/facebook.svg'
+import twitter from '../assets/twitter.svg'
+import threads from '../assets/threads.svg'
+import instagram from '../assets/instagram.svg'
+import NewsLetter from './NewsLetter'
 
 export const Footer = () => {
   return (
-    <div>
+    // <div>
         
-        <footer className="fixed bottom-0 left-0 z-20 w-full p-4 bg-ccbblue border-t border-ccdblue shadow md:flex md:items-center md:justify-between dark:bg-zinc-900 dark:border-zinc-600">
-            <span className="text-sm text-gray-700 sm:text-center dark:text-zinc-100"> <a href="https://www.instagram.com/p/CGKwQ98H7E-/" className="hover:underline">Cotton Candy</a> Estd. 2024
-            </span>
-            <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-600 dark:text-zinc-200 sm:mt-0">
-                <li>
-                    <a href="https://www.facebook.com/CottonCandy.RISH" className="mr-4 hover:underline md:mr-6">Facebook</a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/cottoncandyrish/" className="mr-4 hover:underline md:mr-6">Instagram</a>
-                </li>
-                <li>
-                    <a href="https://www.tiktok.com/@cottoncandydhk" className="hover:underline">TikTok</a>
-                </li>
+        <footer className="relative bottom-0 border-b-0  w-full flex flex-col bg-[#F8FAFC] ">
+          {/* Parent */}
+          <NewsLetter/>
+           <div className='p-11 ml-5 mx-auto flex flex-wrap md:justify-center   items-center md:flex-row gap-[50px] md:gap-[180px] '>
+           <div className='flex flex-col w-[200px] gap-4'>
+            <img src={logo} className='w-full'/>
+            <span className='text-sm'>Crafted for confidence, designed for every occasion.
+Where fashion meets function, and trends become timeless.
+ </span>
+            <ul className='flex gap-4 cursor-pointer '>
+                <li><img src={facebook}  /></li>
+                <li><img src={instagram} /></li>
+                <li><img src={twitter} /></li>
+                <li><img src={threads} /></li>
             </ul>
+            
+            </div>
+            <div>
+                <h1 className='mb-3 text-[#7D3261] font-[600]'>SHOP</h1>
+                <ul className='flex flex-col gap-2 font-[300]'>
+                    <li>HOME</li>
+                    <li>My Account</li>
+                    <li>Wishlist</li>
+                    <li>Cart</li>
+                </ul>
+ 
+            </div>
+            <div>
+            <h1 className='mb-3 text-[#7D3261] font-[600]'>COMPANY</h1>
+                <ul className='flex flex-col gap-2 font-[300]'>
+                    <li>About Us</li>
+                    <li>Delivery Details</li>
+                    <li>Terms & Conditions</li>
+                    <li>Privacy Policy</li>
+                </ul>
+            </div>
+            <div>
+            <h1 className='mb-3 text-[#7D3261] font-[600]'>QUICK LINKS</h1>
+                <ul className='flex flex-col gap-2 font-[300]'>
+                    <li>Customer Support</li>
+                    <li>Cookies Policy</li>
+                    <li>Returns & Refunds</li>
+                    <li>Shipping Policy</li>
+                </ul>
+            </div>
+           </div>
+          <div className='flex justify-center items-center p-4 h-[50px] border-t-2 border-b-0  w-full '>
+           <span className='text-sm'>© Copyright, {new Date().getFullYear()} All Rights Reserved by CottonCandy</span>
+          </div>
         </footer>
 
-    </div>
+    // </div>
   )
 }

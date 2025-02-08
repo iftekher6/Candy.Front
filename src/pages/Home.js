@@ -19,6 +19,8 @@ import useAxiosPrivate from '../hooks/useAxiosPrivate';
 // import { isAuthenticated } from '../../../backend/middleware/authentication';
 // import useRefreshToken from '../hooks/useRefreshToken';
 import spinner from '../assets/spinning-dots.svg'
+import NewsLetter from '../components/NewsLetter';
+import Breadcrumb from '../components/BreadCrumb';
 
 
 
@@ -26,88 +28,30 @@ export const Home = () => {
   
   useTitle("Home");
   
-  const [products, setProducts] = useState([])
+  // const [products, setProducts] = useState([])
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(true)
   const [hasMore,setHasMore] = useState(true)
   const [page, setPage] = useState(1)
   // const {IsAuthenticated ,auth} = useContext(AuthContext)
-  const {isAuthenticated,setIsAuthenticated, auth} = useContext(AuthContext)
+  const {isAuthenticated,setIsAuthenticated, auth, setProducts} = useContext(AuthContext)
   const {searchInput, setSearchInput} = useContext(AuthContext)
 
-  const findData = products.filter(product => product.name.toLowerCase() === searchInput);
-  console.log(findData)
+//  const handleInfiniteScrolling = ()=>{
+//     if(window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight){
+//       setPage(prev=> prev + 1)
+//     }
+//   }
+  // useEffect((()=>{
+  //   window.addEventListener('scroll',handleInfiniteScrolling)
 
-  const handleInfiniteScrolling = ()=>{
-    if(window.innerHeight + document.documentElement.scrollTop + 1 >= document.documentElement.scrollHeight){
-      setPage(prev=> prev + 1)
-    }
-  }
-  useEffect((()=>{
-    window.addEventListener('scroll',handleInfiniteScrolling)
-
-    return ()=> window.removeEventListener('scroll', handleInfiniteScrolling)
+  //   return ()=> window.removeEventListener('scroll', handleInfiniteScrolling)
      
     
-  }),[])
+  // }),[])
  const axiosPrivate = useAxiosPrivate()
  
- const getCardData = async () =>{
-   
-  try {
-    
-      setLoading(true)
-      const {data} = await axiosPrivate.get(`/api/v1/products/pagination?page=${page}`)
-      console.log(data.pagination)
-      if (page >1) {
-        setProducts(prev=> [...prev, ...data.pagination])
-      }else {
-        setProducts(data.pagination)
-      }
-      
-      setLoading(false)
-      // console.log(data.pagination)
-     
-    
-      
-      
-  } catch (error) { 
-    console.log(error)
-    setError(true)
-    setLoading(true)
-  } 
-  
-  }
-
-  useEffect(()=>{
-   
-    getCardData()
-
-
-},[page])
-
-// useEffect(() => {
-//   setLoading(true);
-//   axios
-//     .get(`${server}/users/get`, {
-//       withCredentials: true,
-//     })
-//     .then((res) => {
-//       // setUser(res.data.user);
-//       setIsAuthenticated(true);
-//       // setLoading(false);
-//     })
-//     .catch((error) => {
-//       // setUser({});
-//       setIsAuthenticated(false);
-//       // setLoading(false);
-//     });
-// }, []);
-
-
-
-
-
+ 
 //  const refresh =  useRefreshToken()
 
 
@@ -115,22 +59,16 @@ export const Home = () => {
  return (
   <>
      <main className='max-w-7xl m-auto py-24 '>
-      <section className='flex justify-center flex-wrap '>
+      <section className='flex justify-center gap-2   flex-wrap '>
+       
+        <Card />
      
-        {!searchInput ? products.map((product) =>(
-        
-        <Card key={product._id}  product = {product}/>
-     
-        )) :
-          findData.map((product) =>(
-        
-        <Card key={product._id}  product = {product}/>
-     
-        ))} 
-      {/* <button onClick={()=> refresh()}>click to refresh?</button> */}
+    
       
+      {/* <button onClick={()=> refresh()}>click to refresh?</button> */}
       </section>
       
+      {/* <NewsLetter/> */}
        
       {/* {loading&& <img src={spinner} className='h-[200px] w-[200px] mx-auto' />} */}
     

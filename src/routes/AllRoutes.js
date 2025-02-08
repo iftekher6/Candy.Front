@@ -4,7 +4,7 @@ import Admin from "../pages/Admin";
 import {AdminLogin} from "../pages/AdminLogin"
 import { Login } from "../pages/Login";
 import {Register} from '../pages/Register'
-import { Random } from "../pages/Random";
+// import { Random } from "../pages/Random";
 import Users from "../components/Users";
 import RequireAuth from "../components/RequireAuth";
 // import { Profile } from "../pages/Profile";
@@ -15,13 +15,11 @@ export const AllRoutes = () => {
   return (
     <div>
         <Routes>
-            {/* <Route element={<RequireAuth allowedRoles={['user']}/>} > */}
 
-           
+            {/* <Route element={<RequireAuth allowedRoles={['user']}/>} > */}
             <Route path="/" element={<Home title="Home" />} />
-            <Route path="/random" element={<Random title="Random" />} />
             <Route path="/profile" element={<Profile title="Profile"/>} />
-            <Route path="/productPage" element={<ProductPage title="ProductPage"/>} />
+            <Route path="/productPage/:name" element={<ProductPage title="ProductPage"/>} />
             
             <Route path="/user" element={<Users title ="User"/>} />
             <Route path="/register" element={<Register title="Register" />} />
@@ -42,6 +40,8 @@ export const AllRoutes = () => {
             <Route path="*" element={<PageNotFound />} />
             <Route element={<RequireAuth allowedRoles={['admin']}/>} >
             <Route path="/admin"  element={<Admin title="Admin" />}/>
+           
+          
             </Route>
         </Routes>
     </div>

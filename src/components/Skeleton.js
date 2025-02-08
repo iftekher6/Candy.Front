@@ -4,7 +4,7 @@ import { ErrorFallback } from "./Error";
 const Skeleton = () => {
   return (
     
-    <div className="max-w-sm border rounded p-4 border-ccpink dark:border-ccpurple shadow-2xl w-[80%] m-2  max-w-[320px]">
+    <div className=" border rounded p-4 border-ccpink dark:border-ccpurple shadow-2xl w-[80%] m-2  max-w-[320px]">
     <div className="relative h-60 border rounded mb-4 flex justify-center items-center bg-gray-300 animate-pulse">
       <svg
         className="w-10 h-10 text-gray-200 dark:text-gray-600"

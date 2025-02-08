@@ -18,7 +18,8 @@ const AppWrapper = () => {
   const [token,setToken] = useState('')
   const [auth, setAuth]= useState({})
   const [searchInput, setSearchInput] = useState('')
-  const [productDetails, setProductDetails] = useState({})
+  const [productDetails, setProductDetails] = useState(null)
+  const [products, setProducts] = useState([])
 
 
   return (
@@ -40,7 +41,8 @@ const AppWrapper = () => {
         setAuth,
         searchInput, 
         setSearchInput,
-        productDetails, setProductDetails
+        productDetails, setProductDetails,
+        products, setProducts
       }}
     >
       <App />

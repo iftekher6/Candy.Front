@@ -104,8 +104,8 @@ export const Header = () => {
         };
       }, []);
   return (
-    <nav className='header h-[2000px]'>
-        <div className={` bg-ccpurple w-full flex justify-center items-center p-2   ${isTopHeaderHidden? 'opacity-0 transition-all duration-[2s] ease' : 'opacity-100 transition-all duration-[3s] ease'} `} >
+    <nav className='relative z-50'>
+        <div className={` bg-ccpurple w-full flex justify-center items-center p-2   ${isTopHeaderHidden? 'opacity-0 transition-all duration-[2s] ease' : 'opacity-100 transition-all duration-[1s] ease-in'} `} >
             <p className='text-[#FAFAFA] text-[14px]'>Summer Sale For All T-Shirt And Free Express Delivery - OFF 50%! <span><button className='border-b ml-2'>ShopNow</button></span></p>
         </div>
       {/* Parent DIV of MAIN NAVBAR */}

@@ -1,6 +1,6 @@
 
 
-export { Header3 } from './Header3';
+// export { Header3 } from './Header3';
 export { Footer } from './Footer';
 export { Card } from './Card';
 
