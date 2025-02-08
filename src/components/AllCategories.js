@@ -30,24 +30,20 @@ src: shoes,
     src: pants,
     name : 'Pants'}
 ]
-console.log(categories.map(data=> (
-    console.log(twMerge("text-[#7A7A7A]", data.id && 'text-black'))
-
-)))
 
 const AllCategories = () =>{
 
     const [activeID, setActiveID] = useState(null)
 
     return(
-        <section className="w-full flex flex-col justify-center items-center md:max-w-7xl  mx-auto gap-3">
-         <h1 className="text-[#292929] justify-start text-2xl font-[700] font-poppins mb-4">ALL Categories</h1>
-         <div  className="flex flex-wrap w-[99%] md:flex-row md:justify-center gap-3 mx-auto">
+        <section className="w-full  flex flex-col justify-center  md:items-start  md:max-w-6xl  mx-auto gap-2 ">
+         <h1 className="text-[#292929]  text-center sm:ml-6 md:ml-[70px]  text-2xl font-[700] font-poppins mb-4">ALL Categories</h1>
+         <div  className="flex  flex-wrap sm:flex-row sm:justify-center w-full md:w-[99%] md:flex-row md:justify-center gap-2  mx-auto">
          {
 
            categories.map(data=> (
             
-            <div tabIndex='0' key={data.id} className={`border-[#7A7A7A] border px-[90px] py-8 flex flex-col justify-center items-center gap-3 text-[#7A7A7A] transition-all duration-300 ease ${data.id ? 'focus:bg-ccpurple hover:bg-ccpurple focus:text-white': ''}`}>
+            <div tabIndex='0' key={data.id} className={`border-[#7A7A7A] border mx-auto px-[75px] sm:px-[110px] md:px-[130px] lg:px-[180px] xl:px-[80px] py-8 flex flex-col justify-center items-center gap-3 text-[#7A7A7A] transition-all duration-300 ease ${data.id ? 'focus:bg-ccpurple hover:bg-ccpurple focus:text-white': ''}`}>
                 <img src={data.src} />
                 <span >{data.name}</span>
                 
