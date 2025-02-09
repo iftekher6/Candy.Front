@@ -4,44 +4,17 @@ import Filter from "./Filter"
 import { useContext, useEffect } from "react"
 import { AuthContext } from ".."
 import { axiosPrivate } from "../api/axios"
+import { useAllProducts } from "../hooks/useProducts"
 
 
 const Shop = ()=>{
-     const {isAuthenticated,setIsAuthenticated, auth,products, setProducts} = useContext(AuthContext)
-     console.log(products, 'prods')
-   const getCardData = async () =>{
-   
-        try {
-            
-            // setLoading(true)
-            const response = await axiosPrivate.get(`/api/v1/products/get`)
-            console.log(response, 'dataashop')
-            // console.log(data.pagination)
-           
-              setProducts(response.data)
-           
-            
-            // setLoading(false)
-            // console.log(data.pagination)
-           
-          
-            
-            
-        } catch (error) { 
-          console.log(error)
-        //   setError(true)
-        //   setLoading(true)
-        } 
-        
-        }
-        useEffect(()=>{
-            getCardData()
-        },[])
+    
+   const {data} = useAllProducts()
       
     return(
 <div className=" flex flex-col gap-2  p-2 border-[#CCC] b-l-1">
-    {products.length} products found
-  <CardInner product={products}/>
+    {/* {data.length} products found */}
+  <CardInner product={data}/>
  
     
 </div>

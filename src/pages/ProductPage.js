@@ -11,9 +11,9 @@ function ProductPage() {
    const {name, price, image, description} = productDetails
    const [sizePick, setSizePick] = useState(10)
 
-   console.log(description)
+  //  console.log(description)
    
-   console.log(productDetails)
+  //  console.log(productDetails)
 
    const sizes = [10,12,14,16,18,20]
   return (

@@ -12,11 +12,11 @@ import { useAllProducts, usePaginatedProducts } from '../hooks/useProducts';
 import { usePageContext } from 'react-pdf';
 // import { ErrorBoundary } from 'react-error-boundary';
 
-export const Card = () => {
+export const Card =() => {
 
-    const {data} = usePaginatedProducts(1)
+    const {data} = useAllProducts()
     console.log(data, 'wir')
-    const {productDetails, setProductDetails} = useContext(AuthContext)
+    // const {productDetails, setProductDetails} = useContext(AuthContext)
     const {cartList,  addToCart, removeFromCart} = useCart();
  
     const [isInCart, setIsInCart] = useState(false);
@@ -87,9 +87,7 @@ export const Card = () => {
    
       
    
-   const addToProductPage = (image,price, name, description) =>{
-      setProductDetails({image,price, name, description})
-   }
+
   return (
   
     <div className='flex w-[90%] md:max-w-7xl flex-col mx-auto mt-[-50px] '>
@@ -143,7 +141,7 @@ export const Card = () => {
         </div>
         <div  className='flex overflow-x-hidden w-full' >
 
-        <CardInner product={data.pagination}/>
+        <CardInner product={data}/>
 
         </div>
     </div>

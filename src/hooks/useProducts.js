@@ -10,6 +10,7 @@ const fetchProducts = async ({ queryKey }) => {
   }
   
   const {data} = await axiosPrivate.get(url);
+  console.log(data)
 //   if (!response.ok) throw new Error("Failed to fetch products");
   return data;
 };
