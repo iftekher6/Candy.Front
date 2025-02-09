@@ -1,5 +1,8 @@
 import { Routes,Route } from "react-router-dom";
-import { Home, Shop, Cart, ItemDetail, Premium, Review, Thrift, NFA, Search, PageNotFound, About } from "../pages";
+import { Home,   Cart, ItemDetail, Premium, Review, Thrift, NFA, Search, PageNotFound, About } from "../pages";
+import ShopPage from "../pages/Shop.js";
+
+
 import Admin from "../pages/Admin";
 import {AdminLogin} from "../pages/AdminLogin"
 import { Login } from "../pages/Login";
@@ -10,6 +13,8 @@ import RequireAuth from "../components/RequireAuth";
 // import { Profile } from "../pages/Profile";
 import {Profile}  from "../pages/Profile.js";
 import ProductPage from "../pages/ProductPage.js";
+import Checkout from "../components/Checkout.js";
+import Confirmation from "../components/Confirmation.js";
 
 export const AllRoutes = () => {
   return (
@@ -19,6 +24,8 @@ export const AllRoutes = () => {
             {/* <Route element={<RequireAuth allowedRoles={['user']}/>} > */}
             <Route path="/" element={<Home title="Home" />} />
             <Route path="/profile" element={<Profile title="Profile"/>} />
+            <Route path="/shop" element={<ShopPage/>} />
+            <Route path="/shop/productPage/:name" element={<ProductPage name="ProductPage"/>} />
             <Route path="/productPage/:name" element={<ProductPage title="ProductPage"/>} />
             
             <Route path="/user" element={<Users title ="User"/>} />
@@ -26,8 +33,10 @@ export const AllRoutes = () => {
           
          
             <Route path="/adminLogin"  element={<AdminLogin title="AdminLogin" />}/>
-            <Route path="/shop" element={<Shop title="Shop" />} />
+            {/* <Route path="/shop" element={<Shop title="Shop"   />} /> */}
             <Route path="/cart" element={<Cart title="Cart" />} />
+            <Route path="/checkout" element={<Checkout title="Checkout" />} />
+            <Route path="/confirmation" element={<Confirmation title="Confirmation" />} />
             {/* </Route> */}
             <Route path="/login" element={<Login title="Login" />} />
             <Route path="/item/:id" element={<ItemDetail />} />

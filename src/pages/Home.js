@@ -21,6 +21,8 @@ import useAxiosPrivate from '../hooks/useAxiosPrivate';
 import spinner from '../assets/spinning-dots.svg'
 import NewsLetter from '../components/NewsLetter';
 import Breadcrumb from '../components/BreadCrumb';
+import Filter from '../components/Filter';
+import Banner from '../components/Banner';
 
 
 
@@ -57,24 +59,17 @@ export const Home = () => {
 
 //  error? <Skeleton/> :
  return (
-  <>
+
      <main className='max-w-7xl m-auto py-24 '>
       <section className='flex justify-center gap-2   flex-wrap '>
-       
+        <Banner/>
         <Card />
      
-    
-      
-      {/* <button onClick={()=> refresh()}>click to refresh?</button> */}
+
       </section>
       
-      {/* <NewsLetter/> */}
-       
-      {/* {loading&& <img src={spinner} className='h-[200px] w-[200px] mx-auto' />} */}
-    
     </main>
     
   
-    </>
   )
 }

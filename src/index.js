@@ -5,8 +5,18 @@ import { BrowserRouter as Router } from "react-router-dom";
 import App from './App';
 import { ScrollToTop } from './components';
 import {CartProvider} from './context/CartContext';
-
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 export const server = 'https://cottoncandy-backend.onrender.com/api/v1'
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60000, // 1 min cache
+      cacheTime: 300000, // 5 min cache
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 export const AuthContext = createContext(null);
 
@@ -26,6 +36,7 @@ const AppWrapper = () => {
    
        <Router>
        <ScrollToTop/>
+       <QueryClientProvider client={queryClient}>
        <CartProvider>
     <AuthContext.Provider
       value={{
@@ -48,6 +59,7 @@ const AppWrapper = () => {
       <App />
     </AuthContext.Provider>
     </CartProvider>
+    </QueryClientProvider>
     </Router>
   
   );

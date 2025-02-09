@@ -1,26 +1,28 @@
 import React, {  useContext, useEffect, useRef, useState } from 'react'
 import { useCart } from '../context/CartContext';
 import { AuthContext } from '..';
-import {  Link, useNavigate} from 'react-router-dom';
+import {  Link, useActionData, useNavigate} from 'react-router-dom';
 import loveIcon from '../assets/love.svg'
 import arrowRight from '../assets/icons arrow-right.svg'
 import arrowLeft from '../assets/icons_arrow-left.svg'
 import CardInner from './Card-Inner';
 import timerSemicolon from '../assets/Semiclone.svg'
 import { axiosPrivate } from '../api/axios';
+import { useAllProducts, usePaginatedProducts } from '../hooks/useProducts';
+import { usePageContext } from 'react-pdf';
 // import { ErrorBoundary } from 'react-error-boundary';
 
 export const Card = () => {
+
+    const {data} = usePaginatedProducts(1)
+    console.log(data, 'wir')
     const {productDetails, setProductDetails} = useContext(AuthContext)
     const {cartList,  addToCart, removeFromCart} = useCart();
-    // const {_id, name,price,description ,image} = product;
+ 
     const [isInCart, setIsInCart] = useState(false);
-    // const {isAuthenticated} = useContext(AuthContext)
+  
     const [page, setPage] = useState(1)
-    const containerRef = useRef(null)
-      // const {IsAuthenticated ,auth} = useContext(AuthContext)
-      const {isAuthenticated,setIsAuthenticated, auth,products, setProducts} = useContext(AuthContext)
-    const navigate = useNavigate()
+
     const targetDate = new Date('2025-02-10T00:00:00Z'); // Set the sale end time (change as needed)
 
     const [timeLeft, setTimeLeft] = useState({
@@ -55,43 +57,6 @@ export const Card = () => {
   
       return () => clearInterval(intervalId); // Clean up the interval on component unmount
     }, []);
-    const getCardData = async () =>{
-   
-        try {
-            
-            // setLoading(true)
-            const {data} = await axiosPrivate.get(`/api/v1/products/pagination?page=${page}`)
-            // const response = await fetch('http://localhost:8000/api/v1/products/pagination?page=${page}')
-            // // console.log(response.json())
-            // const data = await response.json()
-            console.log(data, 'dataa')
-            // console.log(data.pagination)
-            if (page >1) {
-              setProducts(prev=> [...prev, ...data.pagination])
-            }else {
-              setProducts(data.pagination)
-            }
-            
-            // setLoading(false)
-            // console.log(data.pagination)
-           
-          
-            
-            
-        } catch (error) { 
-          console.log(error)
-        //   setError(true)
-        //   setLoading(true)
-        } 
-        
-        }
-      
-        useEffect(()=>{
-         
-          getCardData()
-      
-      
-      },[page])
 
       const scrollContainer = (direction)=>{
         if(containerRef.current){
@@ -127,7 +92,7 @@ export const Card = () => {
    }
   return (
   
-    <div className='flex max-w-[80%]  md:max-w-7xl flex-col mx-auto mt-[-50px]  '>
+    <div className='flex w-[90%] md:max-w-7xl flex-col mx-auto mt-[-50px] '>
 
        <div className='flex justify-between items-end mb-2'>
         <div className='flex flex-col md:flex-row gap-2 md:gap-[90px] justify-center items-start'>
@@ -163,25 +128,22 @@ export const Card = () => {
             
             </div>
         </div>
-           
-            <div className='flex gap-2'>
 
-            <img src={arrowLeft} onClick={()=> {
-                scrollContainer('prev')
-                setPage(prev=> prev - 1) 
-                
-                }} className='bg-[#F5F5F5] cursor-pointer   p-1 rounded-[50%]' />
-            <img src={arrowRight} onClick={()=> {
-                scrollContainer('next')
-                setPage(prev=> prev + 1) 
-                
-                }} className='bg-[#F5F5F5] cursor-pointer p-1 rounded-[50%]' />
-            </div>
+        <Link to={'/shop'} >
+        
+       <div className='flex gap-1'>
+        
+        <span className='underline text-[#525252] font-poppins font-[500]'>View All</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<path d="M4 12H16.25L11 6.75L11.66 6L18.16 12.5L11.66 19L11 18.25L16.25 13H4V12Z" fill="#525252"/>
+</svg>
+       </div>
+        </Link>   
 
         </div>
-        <div ref={containerRef} className='flex overflow-x-auto scroll-smooth w-full scrollbar-hide' style={{scrollBehavior: "smooth"}}>
+        <div  className='flex overflow-x-hidden w-full' >
 
-        <CardInner product={products}/>
+        <CardInner product={data.pagination}/>
 
         </div>
     </div>

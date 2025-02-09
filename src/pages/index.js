@@ -7,7 +7,7 @@ export { About } from "./About";
 export { NFA } from "./nfa";
 export { Premium } from "./Premium";
 export { Review } from "./Review";
-export { Shop } from "./Shop";
+
 export { Thrift } from "./Thrift";
 
 

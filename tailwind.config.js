@@ -46,11 +46,15 @@ module.exports = {
         hhxl: '1440px',
     },
     fontFamily:{
-      'aurora':['Aurora Regular','san-serif'],
-      // sans: ['Inter', 'Poppins', ...fontFamily.sans],
+        'aurora':['Aurora Regular','san-serif'],
       poppins: ['Poppins', 'sans-serif'],
       inter: ['Inter', 'sans-serif'],
+ 
+    },
+    boxShadow :{
+      'category' : '0px 4px 8px 0px rgba(125, 50, 97, 0.20)'
     }
+
     },
   },
   plugins: ['@tailwindcss/typography'],
