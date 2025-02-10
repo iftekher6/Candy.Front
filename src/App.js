@@ -1,5 +1,5 @@
 import './App.css';
-import building from '../../Candy.Front/src/assets/building.avif'
+
 import { Footer } from './components';
 import AllCategories from './components/AllCategories';
 import { Header } from './components/Header';
