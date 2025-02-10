@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 // import fa from 'react/ic'
-import {FaCheck , FaArrowDown,FaArrowUp} from 'react-icons/fa'
+import {FaCheck } from 'react-icons/fa'
 
 
 const Filter = () =>{

@@ -15,15 +15,15 @@ export const Footer = () => {
           <NewsLetter/>
            <div className='p-11 ml-5 mx-auto flex flex-wrap md:justify-center   items-center md:flex-row gap-[50px] md:gap-[180px] '>
            <div className='flex flex-col w-[200px] gap-4'>
-            <img src={logo} className='w-full'/>
+            <img src={logo} className='w-full' alt='logo'/>
             <span className='text-sm'>Crafted for confidence, designed for every occasion.
 Where fashion meets function, and trends become timeless.
  </span>
             <ul className='flex gap-4 cursor-pointer '>
-                <li><img src={facebook}  /></li>
-                <li><img src={instagram} /></li>
-                <li><img src={twitter} /></li>
-                <li><img src={threads} /></li>
+                <li><img src={facebook}   alt='social-icons'/></li>
+                <li><img src={instagram} alt='social-icons' /></li>
+                <li><img src={twitter}  alt='social-icons'/></li>
+                <li><img src={threads}  alt='social-icons'/></li>
             </ul>
             
             </div>

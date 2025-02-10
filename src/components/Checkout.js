@@ -30,14 +30,14 @@ const Checkout = () => {
             <div className="flex flex-col p-5 border-[#B1B1B1] border-[1px] rounded-md md:w-1/2 h-[500px]">
                 <div className="flex justify-around items-center bg-grey-500 mb-3 mt-5 ">
                     <div className='flex gap-3 justify-center items-center'>
-                        <img src={shirt} className='w-[55px]'/>
+                        <img src={shirt} className='w-[55px]' alt='product-image'/>
                     <span>T-shirt</span>
                     </div>
                     <span>350 BDT</span>
                 </div>
                 <div className="flex justify-around items-center bg-grey-500  ">
                     <div className='flex gap-3 justify-center items-center'>
-                        <img src={shirt} className='w-[55px]'/>
+                        <img src={shirt} className='w-[55px]' alt='product-image'/>
                     <span>T-shirt</span>
                     </div>
                     <span>350 BDT</span>
@@ -67,10 +67,10 @@ const Checkout = () => {
             <label for="name" class=" text-[#52525B] font-poppins font-[400] ">Online</label>
                 </div>
             <div className="flex gap-2">
-                <img src={bkash} className='w-10'/>
-                <img src={visa} className='w-10'/>
-                <img src={mastercard} className='w-10'/>
-                <img src={nagad} className='w-10'/>
+                <img src={bkash} className='w-10' alt='mfs'/>
+                <img src={visa} className='w-10' alt='mfs'/>
+                <img src={mastercard} className='w-10' alt='mfs'/>
+                <img src={nagad} className='w-10' alt='mfs'/>
             </div>
             </div>
             {/* cod */}

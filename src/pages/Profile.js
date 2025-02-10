@@ -1,4 +1,4 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
+
 import { useEffect, useState } from "react";
 import axios from "../api/axios";
 
@@ -10,7 +10,7 @@ export const Profile = ()=> {
             },[])
 
    const [searchValue, setSearchValue] = useState('')
-   const [showValue, setShowValue] = useState([])
+   const [ setShowValue] = useState([])
    const [data, setData] = useState([])
 
    const findData = data.filter(value => value.id === Number(searchValue))
@@ -36,7 +36,7 @@ const handleOnChange = (e) =>{
 {findData.map(value=> (
     <p key={value.id}>
         {value.title}
-        <img src={value.thumbnailUrl} />
+        <img src={value.thumbnailUrl} alt="thumbnail" />
     </p>
     
 ))}

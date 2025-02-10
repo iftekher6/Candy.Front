@@ -1,9 +1,6 @@
-import { Card } from "./Card"
+
 import CardInner from "./Card-Inner"
-import Filter from "./Filter"
-import { useContext, useEffect } from "react"
-import { AuthContext } from ".."
-import { axiosPrivate } from "../api/axios"
+
 import { useAllProducts } from "../hooks/useProducts"
 
 

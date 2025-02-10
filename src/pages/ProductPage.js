@@ -7,8 +7,8 @@ import { AuthContext } from '..'
 import Breadcrumb from '../components/BreadCrumb'
 
 function ProductPage() {
-    const {productDetails, setProductDetails} = useContext(AuthContext)
-   const {name, price, image, description} = productDetails
+    const {productDetails} = useContext(AuthContext)
+   const {name, price, image} = productDetails
    const [sizePick, setSizePick] = useState(10)
 
   //  console.log(description)
@@ -24,13 +24,13 @@ function ProductPage() {
           {/* first section */}
           <div className='w-full md:w-1/2 flex flex-col  gap-2 h-auto '>
             <Breadcrumb/>
-            <img src={image} alt={name} className='w-[450px] rounded-[8px] border-[#B1B1B1] border-solid border-[1px] object-cover '/>
+            <img src={image} alt={name} className='w-[450px] rounded-[8px] border-[#B1B1B1] border-solid border-[1px] object-cover' />
             <div className='flex gap-2 flex-wrap'>
-            <img src={image} alt={name} className='w-[73.8px]  rounded-[8px] border-[#B1B1B1] border-solid border-[1px] object-cover '/>
-            <img src={image} alt={name} className='w-[73.8px]  rounded-[8px] border-[#B1B1B1] border-solid border-[1px] object-cover '/>
-            <img src={image} alt={name} className='w-[73.8px]  rounded-[8px] border-[#B1B1B1] border-solid border-[1px] object-cover '/>
-            <img src={image} alt={name} className='w-[73.8px]  rounded-[8px] border-[#B1B1B1] border-solid border-[1px] object-cover '/>
-            <img src={image} alt={name} className='w-[73.8px]  rounded-[8px] border-[#B1B1B1] border-solid border-[1px] object-cover '/>
+            <img src={image} alt={name} className='w-[73.8px]  rounded-[8px] border-[#B1B1B1] border-solid border-[1px] object-cover' />
+            <img src={image} alt={name} className='w-[73.8px]  rounded-[8px] border-[#B1B1B1] border-solid border-[1px] object-cover' />
+            <img src={image} alt={name} className='w-[73.8px]  rounded-[8px] border-[#B1B1B1] border-solid border-[1px] object-cover' />
+            <img src={image} alt={name} className='w-[73.8px]  rounded-[8px] border-[#B1B1B1] border-solid border-[1px] object-cover' />
+            <img src={image} alt={name} className='w-[73.8px]  rounded-[8px] border-[#B1B1B1] border-solid border-[1px] object-cover' />
             </div>
           </div>
           {/* second section */}
@@ -62,10 +62,10 @@ function ProductPage() {
             <div className='flex flex-col gap-4 '>
               <span className='text-[#8F8F8F] font-[400]'>Color: <span className='font-[600] text-lg text-black ml-1'>White and Black</span></span>
               <div className='flex gap-2'>
-               <img src={greyish} />
-               <img src={greenish} />
-               <img src={yellowish} />
-               <img src={bluish} />
+               <img src={greyish} alt='color'/>
+               <img src={greenish} alt='color'/>
+               <img src={yellowish} alt='color'/>
+               <img src={bluish} alt='color'/>
               </div>
             </div>
             {/* size */}

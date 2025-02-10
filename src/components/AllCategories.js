@@ -1,10 +1,9 @@
 import shoes from '../assets/shoes.svg'
-import dress from '../assets/dress.svg'
+
 import tshirts from '../assets/tshirts.svg'
 import pants from '../assets/pants.svg'
-import clsx from 'clsx'
-import {twMerge} from 'tailwind-merge'
-import { useState } from 'react'
+
+
 
 
 
@@ -44,7 +43,7 @@ const AllCategories = () =>{
            categories.map(data=> (
             
             <div tabIndex='0' key={data.id} className={`w-[250px] mx-auto px-[40px]  py-3 flex justify-center items-center gap-3 text-[#7A7A7A] transition-all duration-300 ease shadow-category ${data.id ? 'focus:bg-ccpurple hover:bg-ccpurple focus:text-white': ''}`}>
-                <img src={data.src} className='w-[80px]' />
+                <img src={data.src} className='w-[80px]' alt={data.name} />
                 <span >{data.name}</span>
                 
             </div>

@@ -22,7 +22,7 @@ export const Review = () => {
                 </div>
             </figcaption>
         </figure>
-        <img src="" alt="" />
+        <img src="" alt="data" />
       </div>
 
     </div>

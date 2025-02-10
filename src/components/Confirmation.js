@@ -6,7 +6,7 @@ const Confirmation = ()=>{
         <Breadcrumb/>
      {/* main part  */}
      <div className="max-w-4xl flex flex-col justify-center items-center mx-auto gap-5">
-        <img src={confirmationtick} className="w-[150px] h-auto"/>
+        <img src={confirmationtick} className="w-[150px] h-auto" alt="confirm-image"/>
        <div className="flex flex-col justify-center items-center">
 
 

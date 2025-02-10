@@ -2,41 +2,33 @@ import React, { useContext, useEffect, useState } from 'react'
 import LogoD from '../assets/CCLogoDark.png'
 import LogoL from '../assets/CCLogoLight.png'
 import { Link, NavLink } from 'react-router-dom'
-import { NavLinks } from './NavLinks'
-import { useCart } from '../context/CartContext'
+
+
 import axios from 'axios'
 import { AuthContext, server } from '..'
-import loginIcon from '../assets/login.png'
+
 import loginUserIcon from '../assets/loginUserIcon.svg'
 import darkToggler from '../assets/darkmodetoggler.svg'
 import cart from '../assets/cart.svg'
 import Wishlist from '../assets/Wishlist.svg'
 import searchIcon from '../assets/searchIcon.svg'
-// import { Login } from '../pages/Login'
-import { Cart } from '../pages'
+
 
 
 
 export const Header = () => {
     
-    const {cartList} = useCart();
-    const {isAuthenticated,setIsAuthenticated , auth} = useContext(AuthContext)
-    const [open, setOpen] = useState(false);
+ 
+    const {isAuthenticated,setIsAuthenticated } = useContext(AuthContext)
+ 
     const {searchInput, setSearchInput} = useContext(AuthContext)
-    const [showLogin, setShowLogin] = useState(false)
+ 
     const [darkMode, setDarkMode] = useState(JSON.parse(localStorage.getItem("darkMode")));
 
     const [isTopHeaderHidden, setIsTopHeaderHidden] = useState(false);
     const [isMainHeaderFixed, setIsMainHeaderFixed] = useState(false);
   
-    const hoverMouse = ()=>{
-        setShowLogin(true)
-    }
-   
-    const unHoverMouse = ()=>{
-        setShowLogin(false)
-    }
-   
+
     useEffect(() => {
         localStorage.setItem("darkMode", JSON.stringify(darkMode));
         
@@ -80,7 +72,7 @@ export const Header = () => {
 
 
       const searchHandler= (e)=>{
-        const {name, value} = e.target
+        const { value} = e.target
         setSearchInput(value)
     
    
@@ -123,7 +115,7 @@ export const Header = () => {
                 <div className="bg-white rounded-[10px] w-[370px] px-4 py-3 flex justify-start items-center  overflow-hidden gap-3">
                     {/* <span className="sr-only">Search icon</span> */}
                     {/* <form onSubmit={searchHandler}> */}
-                        <img src={searchIcon} />
+                        <img src={searchIcon} alt='search-icon' />
                         <input type="text" value={searchInput} onChange={searchHandler} name="searchh" className="w-full outline-none " placeholder="Search..." autoComplete="off"/>
                     {/* </form> */}
                 </div>
@@ -138,12 +130,12 @@ export const Header = () => {
                 
                 <li>
                     <NavLink to="/cart" className=' relative flex  hover:text-neutral-900 focus:text-neutral-900/'>
-                      <img src={Wishlist} />
+                      <img src={Wishlist} alt='product-deposits'/>
                  </NavLink>
                 </li>
                 <li>
                     <NavLink to="/cart" className=' relative flex   hover:text-neutral-900 focus:text-neutral-900/'>
-                      <img src={cart} />
+                      <img src={cart} alt='product-deposits'/>
                  </NavLink>
                 </li>
                 <li>
@@ -152,7 +144,7 @@ export const Header = () => {
             Logout
           </button>
         ) : (
-          <Link className='flex py-2  px-3 bg-[#7D3261] rounded-[8px] hover:text-neutral-900 focus:text-neutral-900' to={"/login"}><img src={loginUserIcon}/> <span className='ml-[5px] text-white text-[14px] font-poppins font-normal'>Login</span>
+          <Link className='flex py-2  px-3 bg-[#7D3261] rounded-[8px] hover:text-neutral-900 focus:text-neutral-900' to={"/login"}><img src={loginUserIcon} alt='login-userIcon'/> <span className='ml-[5px] text-white text-[14px] font-poppins font-normal'>Login</span>
         </Link>
         )}
 
@@ -161,7 +153,7 @@ export const Header = () => {
          
                 <div>
                 <button onClick={() => setDarkMode(!darkMode)} >
-                   <img src={darkToggler} />
+                   <img src={darkToggler} alt='dark-toggler'/>
                    
                 </button> 
                 </div>

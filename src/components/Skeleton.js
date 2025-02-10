@@ -1,5 +1,5 @@
 import React from "react";
-import { ErrorFallback } from "./Error";
+
 
 const Skeleton = () => {
   return (

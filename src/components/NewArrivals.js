@@ -8,7 +8,7 @@ const NewArrivals = ()=>{
         <div className='flex flex-col md:flex-row gap-2 p-2 h-full md:h-[540px] overflow-hidden'>
          {/* left section desktop */}
          <div className='flex flex-col w-full md:w-1/2 h-[900px] md:h-full p-3 relative bg-ccpink rounded-md  overflow-hidden'>
-         <img src={blackDress} className='w-full h-auto hover:scale-110 transition-all duration-300 ease'/>
+         <img src={blackDress} className='w-full h-auto hover:scale-110 transition-all duration-300 ease' alt='dress'/>
         <div className='absolute bottom-0 p-2 flex flex-col justify-start items-start'>
 
              <h1 className='font-inter font-[600] text-2xl text-ccpurple'>T-shirt</h1>
@@ -20,7 +20,7 @@ const NewArrivals = ()=>{
          <div className='w-full md:w-1/2 h-full flex flex-col  gap-2'>
          {/* top div */}
          <div className='bg-ccpink h-[250px] md:h-[350px] relative p-2 rounded-md overflow-hidden'>
-         <img src={blackDress} className='w-[450px] relative top-[-60px] left-20 hover:scale-110 transition-all duration-300 ease'/>
+         <img src={blackDress} className='w-[450px] relative top-[-60px] left-20 hover:scale-110 transition-all duration-300 ease' alt='dress'/>
          <div className='absolute bottom-0 p-2 flex flex-col justify-start items-start'>
 
              <h1 className='font-inter font-[600] text-2xl text-ccpurple'>T-shirt</h1>
@@ -32,7 +32,7 @@ const NewArrivals = ()=>{
          <div className='flex gap-2'>
          {/* first one */}
          <div className='bg-ccpurple relative rounded-md'>
-         <img src={blackDress} className='w-full hover:scale-110 transition-all duration-300 ease'/>
+         <img src={blackDress} className='w-full hover:scale-110 transition-all duration-300 ease' alt='dress'/>
          <div className='absolute top-[105px] md:top-[153px] p-2 flex flex-col gap-1 justify-start items-start'>
 
             
@@ -43,7 +43,7 @@ const NewArrivals = ()=>{
          </div>
          {/* second one */}
          <div className='bg-ccpurple relative rounded-md'>
-         <img src={blackDress} className='w-full hover:scale-110 transition-all duration-300 ease'/>
+         <img src={blackDress} className='w-full hover:scale-110 transition-all duration-300 ease' alt='dress'/>
          <div className='absolute bottom-0 p-2 flex flex-col gap-1 justify-start items-start'>
 
              <h1 className='font-inter font-[600] text-2xl text-[#fff]'>T-shirt</h1>
@@ -64,7 +64,3 @@ const NewArrivals = ()=>{
 
 export default NewArrivals;
 
-
-{/* <h1 className='text-ccpurple font-[700] text-lg font-inter'>T-Shirt</h1> */}
-            // <span className='font-poppins font-[400] text-ccpurple'>Black and White T-shirt coming out on sale</span>
-            // <button className='font-poppins font-[500] text-ccpurple'>Shop Now</button>

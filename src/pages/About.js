@@ -16,7 +16,7 @@ export const About = () => {
               <div className='flex mx-auto'>
                 <div className='basis-[30%]'>
                   
-                  <img className=" rounded-md min-w-80 min-h-80 object-cover object-center" src={Sharika} alt=""/>
+                  <img className=" rounded-md min-w-80 min-h-80 object-cover object-center" src={Sharika} alt="sharika"/>
                   <h1 className="text-2xl mt-5 abso top-0">Sumaiya Fahmida Sharika</h1>
                   <p className="sm">Owner</p>
                 </div>
@@ -48,7 +48,7 @@ export const About = () => {
           <div className="max-w-full border rounded p-3 m-2">
               <div className='flex mx-auto'>
                 <div className='basis-[30%]'>
-                  <img className=" rounded-md min-w-80 min-h-80 object-cover object-center" src={Rifad} alt=""/>
+                  <img className=" rounded-md min-w-80 min-h-80 object-cover object-center" src={Rifad} alt='rifad'/>
                   <h1 className="text-2xl mt-5 abso top-0">Rifad Ul Islam</h1>
                   <p className="sm">Owner</p>
                 </div>

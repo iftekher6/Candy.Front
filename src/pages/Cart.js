@@ -1,18 +1,18 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
 import { CartCard } from '../components'
 import { useTitle } from '../hooks/useTitle'
 import { useCart } from '../context/CartContext'
-import { Navigate } from 'react-router-dom'
-import { AuthContext } from '..'
+
+
 import Breadcrumb from '../components/BreadCrumb'
 
 
 export  const Cart = () => {
   useTitle("Cart");
   
-  const {total, cartList} = useCart();
-  const {isAuthenticated} = useContext(AuthContext)
+  const { cartList} = useCart();
+
   
   // if (!isAuthenticated) return <Navigate to={"/login"} />; 
    

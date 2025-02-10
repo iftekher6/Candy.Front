@@ -5,8 +5,8 @@ const NewsLetter = ()=>{
     return(
         <section className="w-[80%] relative md:max-w-7xl mx-auto bg-ccpurple flex flex-col justify-center 
         items-center p-[52px] gap-5 rounded-lg mt-5 mb-3 overflow-hidden    ">
-            <img className="absolute left-0 top-0 " src={NewsletterShape} />
-            <img src={NewsletterShape2}  className="absolute right-0 bottom-0 "/>
+            <img className="absolute left-0 top-0 " src={NewsletterShape}  alt='icons'/>
+            <img src={NewsletterShape2}  className="absolute right-0 bottom-0"alt='icons'/>
             <div className="mb-4">
                 <h1 className="text-[#FFFFFF] font-poppins text-xl md:text-[28px] font-[600]">Subscribe to our newsletter</h1>
             </div>

@@ -1,14 +1,11 @@
 import './App.css';
 
 import { Footer } from './components';
-import AllCategories from './components/AllCategories';
+
 import { Header } from './components/Header';
 import NewArrivals from './components/NewArrivals';
 
-import NewsLetter from './components/NewsLetter';
-import { AllRoutes } from './routes/AllRoutes';
-import Filter from './components/Filter';
-// import { Outlet } from 'react-router-dom';
+import { AllRoutes } from './routes/AllRoutes'
 
 function App() {
 
@@ -17,12 +14,9 @@ function App() {
    
       <Header/> 
       <AllRoutes/>
-      {/* <AllCategories/> */}
+      
       <NewArrivals/>
-      {/* <Filter/>   */}
- 
-      {/* <CardInners/> */}
-      {/* <NewsLetter/> */}
+   
       <Footer/>
     </div>
     

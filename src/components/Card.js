@@ -1,69 +1,66 @@
-import React, {  useContext, useEffect, useRef, useState } from 'react'
-import { useCart } from '../context/CartContext';
-import { AuthContext } from '..';
-import {  Link, useActionData, useNavigate} from 'react-router-dom';
-import loveIcon from '../assets/love.svg'
-import arrowRight from '../assets/icons arrow-right.svg'
-import arrowLeft from '../assets/icons_arrow-left.svg'
+
+
+
+import {Link} from 'react-router-dom';
+
 import CardInner from './Card-Inner';
-import timerSemicolon from '../assets/Semiclone.svg'
-import { axiosPrivate } from '../api/axios';
-import { useAllProducts, usePaginatedProducts } from '../hooks/useProducts';
-import { usePageContext } from 'react-pdf';
-// import { ErrorBoundary } from 'react-error-boundary';
+
+
+import { useAllProducts} from '../hooks/useProducts';
+
 
 export const Card =() => {
 
     const {data} = useAllProducts()
-    console.log(data, 'wir')
+    // console.log(data, 'wir')
     // const {productDetails, setProductDetails} = useContext(AuthContext)
-    const {cartList,  addToCart, removeFromCart} = useCart();
+    // const {cartList,  addToCart, removeFromCart} = useCart();
  
-    const [isInCart, setIsInCart] = useState(false);
+    // const [isInCart, setIsInCart] = useState(false);
   
-    const [page, setPage] = useState(1)
+    // const [page, setPage] = useState(1)
 
-    const targetDate = new Date('2025-02-10T00:00:00Z'); // Set the sale end time (change as needed)
+    // const targetDate = new Date('2025-02-10T00:00:00Z'); // Set the sale end time (change as needed)
 
-    const [timeLeft, setTimeLeft] = useState({
-      days: 0,
-      hours: 0,
-      minutes: 0,
-      seconds: 0,
-    });
+    // const [timeLeft, setTimeLeft] = useState({
+    //   days: 0,
+    //   hours: 0,
+    //   minutes: 0,
+    //   seconds: 0,
+    // });
   
-    // Function to calculate the time left
-    const calculateTimeLeft = () => {
-      const now = new Date();
-      const timeDifference = targetDate - now;
+    // // Function to calculate the time left
+    // const calculateTimeLeft = () => {
+    //   const now = new Date();
+    //   const timeDifference = targetDate - now;
   
-      if (timeDifference <= 0) {
-        return { days: 0, hours: 0, minutes: 0, seconds: 0 }; // Time's up
-      }
+    //   if (timeDifference <= 0) {
+    //     return { days: 0, hours: 0, minutes: 0, seconds: 0 }; // Time's up
+    //   }
   
-      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+    //   const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    //   const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    //   const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+    //   const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
   
-      return { days, hours, minutes, seconds };
-    };
+    //   return { days, hours, minutes, seconds };
+    // };
   
-    // Update the timer every second
-    useEffect(() => {
-      const intervalId = setInterval(() => {
-        setTimeLeft(calculateTimeLeft());
-      }, 1000);
+    // // Update the timer every second
+    // useEffect(() => {
+    //   const intervalId = setInterval(() => {
+    //     setTimeLeft(calculateTimeLeft());
+    //   }, 1000);
   
-      return () => clearInterval(intervalId); // Clean up the interval on component unmount
-    }, []);
+    //   return () => clearInterval(intervalId); // Clean up the interval on component unmount
+    // }, []);
 
-      const scrollContainer = (direction)=>{
-        if(containerRef.current){
-            const scrollAmount = 300;
-            containerRef.current.scrollLeft += direction === "next" ? scrollAmount : -scrollAmount;
-        }
-      }
+      // const scrollContainer = (direction)=>{
+      //   if(containerRef.current){
+      //       const scrollAmount = 300;
+      //       containerRef.current.scrollLeft += direction === "next" ? scrollAmount : -scrollAmount;
+      //   }
+      // }
     // const handleAddtoCart = ()=>{
         
     //     if(isAuthenticated){
@@ -97,7 +94,7 @@ export const Card =() => {
 
             <h1 className='font-[600] text-2xl whitespace-nowrap md:text-3xl order-1'>Flash Sales</h1>
             {/* Timer */}
-            <div className='flex gap-6 md:order-2 '>
+            {/* <div className='flex gap-6 md:order-2 '>
                 <div className='flex flex-col'>
                     <span className='text-[15px] text-[#292929] font-poppins font-[500]'>Days</span>
                     
@@ -124,7 +121,7 @@ export const Card =() => {
                     </span>
                 </div>
             
-            </div>
+            </div> */}
         </div>
 
         <Link to={'/shop'} >

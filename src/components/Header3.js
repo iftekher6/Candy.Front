@@ -1,19 +1,14 @@
-import React, {  useContext, useEffect, useState } from 'react'
+import React, {  useContext, useState } from 'react'
 import { useCart } from '../context/CartContext';
 import { AuthContext } from '..';
-import {  Link, useNavigate} from 'react-router-dom';
+import {  useNavigate} from 'react-router-dom';
 import loveIcon from '../assets/love.svg'
-import arrowRight from '../assets/icons arrow-right.svg'
-import arrowLeft from '../assets/icons_arrow-left.svg'
-// import { ErrorBoundary } from 'react-error-boundary';
+
 
 const CardInners = () => {
     const {products} = useContext(AuthContext)
-    const {cartList,  addToCart, removeFromCart} = useCart();
-    const [isInCart, setIsInCart] = useState(false);
-    // const {isAuthenticated, products} = useContext(AuthContext)
-    // const {_id, name,price,description ,image} = products;
-    const navigate = useNavigate()
+
+
 
     // const handleAddtoCart = ()=>{
         
@@ -50,7 +45,7 @@ const CardInners = () => {
          {/* <img src={product.image} className='relative w-full border border-solid border-[#B1B1B1] p-2'/> */}
         <span className='bg-ccpurple px-2 absolute top-3  left-2 rounded-[3px] text-white font-[300] text-sm'>-20%</span>
         <div className='absolute  bg-white rounded-[50%] shadow top-1 right-2 p-1'>
-          <img src={loveIcon} />
+          <img src={loveIcon} alt='love-icon'/>
         </div>
 
         <div>

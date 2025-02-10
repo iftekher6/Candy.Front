@@ -4,7 +4,7 @@ const Banner = ()=>{
 
     return(
         <div className='md:max-w-6xl mb-[100px] mt-[-70px]'>
-            <img src={banner} />
+            <img src={banner} alt='banner'/>
         </div>
     )
 }

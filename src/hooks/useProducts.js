@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { axiosPrivate } from "../api/axios";
 
 const fetchProducts = async ({ queryKey }) => {
-  const [_key, type, page] = queryKey;
+  const [ type, page] = queryKey;
   
   let url = "/api/v1/products/get"; // Default: All products
   if (type === "paginated") {

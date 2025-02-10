@@ -5,11 +5,11 @@ import iconGoogle from '../assets/Icon-Google.svg'
 import iconFacebook from '../assets/icon-Facebook.svg'
 import { useState } from 'react';
 
-import { Navigate } from 'react-router-dom';
-import { AuthContext, server } from '..';
-import axios from '../api/axios';
+
+import { AuthContext } from '..';
+
 import useAxiosPrivate from '../hooks/useAxiosPrivate';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import {  useNavigate, useLocation } from 'react-router-dom';
 
  export const Login= ({hover, unHover})=> {
   const [email, setEmail] = useState("");
@@ -17,8 +17,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
   const {setAuth} = useContext(AuthContext)
   const [loading, setLoading ] = useState(false)
   const axiosPrivate = useAxiosPrivate()
-  const[bio, setBioInput] = useState('')
-  const {isAuthenticated, setIsAuthenticated} = useContext(AuthContext);
+  const { setIsAuthenticated} = useContext(AuthContext);
 
     
     const navigate = useNavigate();
@@ -68,7 +67,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
     return (
     <div  className="min-h-screen w-full md:max-w-5xl  mx-auto flex flex-col md:flex-row justify-center items-center mb-6 ">
       <div className='w-1/2'>
-        <img src={loginIcon} width={450} />
+        <img src={loginIcon} width={450} alt='icon'/>
       </div>
       <div className="w-full md:w-1/2  p-6 bg-white rounded-md shadow-md ">
         <h2 className="text-3xl font-semibold font-inter text-gray-800 mb-6">Login</h2>
@@ -107,7 +106,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
          > 
          
        Login{
-        loading && <img className="h-[27px] absolute top-[7px] left-[145px]" src={Loading} alt=""/>
+        loading && <img className="h-[27px] absolute top-[7px] left-[145px]" src={Loading} alt="icon"/>
        }
       
           </button>
@@ -116,13 +115,13 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
         <button
             type="submit"
             className="relative flex justify-center items-center gap-3 w-[400px] border text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none mt-4">
-              <img src={iconGoogle}  width={25}/> 
+              <img src={iconGoogle}  width={25} alt='icon'/> 
              <span className='text-[#292929] font-poppins'>Sign in with Google</span>
           </button>
         <button
             type="submit"
             className="relative flex justify-center items-center gap-3 w-[400px] border text-white py-2 rounded-md hover:bg-blue-600  focus:outline-none mt-4">
-              <img src={iconFacebook}  width={26} className='ml-5'/> 
+              <img src={iconFacebook}  width={26} className='ml-5' alt='icon'/> 
              <span className='text-[#292929] font-poppins'>Sign in wth Facebook</span>
           </button>
         <p className="mt-4 text-sm text-gray-600">
