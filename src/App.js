@@ -4,7 +4,7 @@ import { Footer } from './components';
 import AllCategories from './components/AllCategories';
 import { Header } from './components/Header';
 import NewArrivals from './components/NewArrivals';
-// const {}
+
 import NewsLetter from './components/NewsLetter';
 import { AllRoutes } from './routes/AllRoutes';
 import Filter from './components/Filter';
@@ -18,7 +18,7 @@ function App() {
       <Header/> 
       <AllRoutes/>
       {/* <AllCategories/> */}
-      {/* <NewArrivals/> */}
+      <NewArrivals/>
       {/* <Filter/>   */}
  
       {/* <CardInners/> */}
