@@ -30,6 +30,7 @@ const AppWrapper = () => {
   const [searchInput, setSearchInput] = useState('')
   const [productDetails, setProductDetails] = useState(null)
   const [products, setProducts] = useState([])
+  const [sideBarOpen, setSideBarOpen] = useState(false)
 
 
   return (
@@ -53,7 +54,8 @@ const AppWrapper = () => {
         searchInput, 
         setSearchInput,
         productDetails, setProductDetails,
-        products, setProducts
+        products, setProducts,
+        sideBarOpen, setSideBarOpen
       }}
     >
       <App />

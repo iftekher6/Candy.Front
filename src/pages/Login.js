@@ -1,6 +1,7 @@
 import React, { useContext} from 'react';
 import Loading from '../assets/spinning.svg'
-import loginIcon from '../assets/loginImage.svg'
+
+import darkLoginIcon from '../assets/darkmode-loginIcon.svg'
 import iconGoogle from '../assets/Icon-Google.svg'
 import iconFacebook from '../assets/icon-Facebook.svg'
 import { useState } from 'react';
@@ -9,7 +10,7 @@ import { useState } from 'react';
 import { AuthContext } from '..';
 
 import useAxiosPrivate from '../hooks/useAxiosPrivate';
-import {  useNavigate, useLocation } from 'react-router-dom';
+import {  useNavigate, useLocation, Link } from 'react-router-dom';
 
  export const Login= ({hover, unHover})=> {
   const [email, setEmail] = useState("");
@@ -65,12 +66,13 @@ import {  useNavigate, useLocation } from 'react-router-dom';
 
   // if (isAuthenticated) return <Navigate to={"/"} />;
     return (
-    <div  className="min-h-screen w-full md:max-w-5xl  mx-auto flex flex-col md:flex-row justify-center items-center mb-6 ">
-      <div className='w-1/2'>
-        <img src={loginIcon} width={450} alt='icon'/>
+    <div  className="min-h-screen w-full md:max-w-4xl  mx-auto flex flex-col md:flex-row justify-center items-center mb-6 ">
+      <div className='w-1/2 '>
+      
+        <img src={darkLoginIcon} width={450} alt='icon' />
       </div>
-      <div className="w-full md:w-1/2  p-6 bg-white rounded-md shadow-md ">
-        <h2 className="text-3xl font-semibold font-inter text-gray-800 mb-6">Login</h2>
+      <div className="w-full md:w-1/2  p-6 dark:bg-[#262626] rounded-md  ">
+        <h2 className="text-3xl font-semibold font-inter dark:text-white text-gray-800 mb-6">Login to Cotton candy</h2>
         <p>Enter your details below</p>
         <form onSubmit={submitHandler}>
           <div className="mb-4">
@@ -102,7 +104,7 @@ import {  useNavigate, useLocation } from 'react-router-dom';
           <span className='relative left-[243px] top-[-10px] cursor-pointer text-sm'>Forget your password?</span>
           <button
             type="submit"
-            className="relative w-[400px] bg-[#7D3261] text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none "
+            className="relative w-full bg-ccpurple  text-white py-2 rounded-md hover:bg-[#7d1e59] focus:outline-none "
          > 
          
        Login{
@@ -114,21 +116,22 @@ import {  useNavigate, useLocation } from 'react-router-dom';
         </form>
         <button
             type="submit"
-            className="relative flex justify-center items-center gap-3 w-[400px] border text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none mt-4">
+            className="relative flex justify-center items-center gap-3 w-full border text-white py-2 rounded-md  focus:outline-none mt-4 hover:bg-slate-300">
               <img src={iconGoogle}  width={25} alt='icon'/> 
-             <span className='text-[#292929] font-poppins'>Sign in with Google</span>
+             <span className='text-[#292929] font-poppins dark:text-[#B1B1B1]'>Sign in with Google</span>
           </button>
         <button
             type="submit"
-            className="relative flex justify-center items-center gap-3 w-[400px] border text-white py-2 rounded-md hover:bg-blue-600  focus:outline-none mt-4">
+            className="relative flex justify-center items-center gap-3 w-full border text-white py-2 rounded-md  focus:outline-none mt-4 hover:bg-slate-300">
               <img src={iconFacebook}  width={26} className='ml-5' alt='icon'/> 
-             <span className='text-[#292929] font-poppins'>Sign in wth Facebook</span>
+             <span className='text-[#292929] font-poppins dark:text-[#B1B1B1]'>Sign in wth Facebook</span>
           </button>
-        <p className="mt-4 text-sm text-gray-600">
+        <p className="mt-4 w-full text-center">
           
-          <a href="/register" className="text-blue-500 hover:underline">
-            Register now
-          </a>
+         <Link to={'/register'} className="text-[#292929]  font-poppins hover:underline mx-auto" >
+        
+          Don’t have an account? <span className='underline'>Signup</span>
+         </Link>
         </p>
       </div>
      

@@ -1,10 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, {  useState , useContext} from 'react'
 import greyish from '../assets/greyish.svg'
 import bluish from '../assets/bluish.svg'
 import greenish from '../assets/greenish.svg'
 import yellowish from '../assets/yellow.svg'
 import { AuthContext } from '..'
 import Breadcrumb from '../components/BreadCrumb'
+
 
 function ProductPage() {
     const {productDetails} = useContext(AuthContext)
@@ -74,7 +75,7 @@ function ProductPage() {
              <span className='text-[#8F8F8F]'>Size: <span className='font-[600] text-black text-lg'>{sizePick}</span></span>
              <button className='text-[#525252] border-b-[1px] border-[#525252]'>View Size Chart</button>
              </div>
-             <div className='flex gap-2'>
+             <div className='flex gap-2 flex-wrap'>
               {sizes.map(size=>(
                 <span tabIndex='0' onClick={()=> setSizePick(size)} className={`font-[600] text-black text-lg border-[#E6E6E6] border-[1px] p-2 rounded-[6px] px-5 py-1 ${size ? 'focus:border-[#EBEBEB] focus:bg-[#ffe6e6]' : ''}`}>{size}</span>
 
@@ -83,8 +84,8 @@ function ProductPage() {
              </div>
              {/* CART AND BUY NOW BUTTONS */}
              <div className='flex gap-2 mt-5'>
-              <button className='bg-ccpurple text-white px-[85px] rounded-md'>Add to Cart</button>
-              <button className='border-[#B8B8B8] border-[1px] px-8 py-2 rounded-md text-black'>Buy Now</button>
+              <button className='bg-ccpurple text-white px-[65px] rounded-md'>Add to Cart</button>
+              <button className='border-[#B8B8B8] border-[1px] px-7 py-2 rounded-md text-black'>Buy Now</button>
 
              </div>
             </div>
