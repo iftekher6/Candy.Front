@@ -14,7 +14,6 @@ import searchIcon from '../assets/searchIcon.svg'
 
 export const Header = () => {
     
- 
     const {isAuthenticated,
       setIsAuthenticated,
      setSideBarOpen
@@ -22,27 +21,30 @@ export const Header = () => {
      } = useContext(AuthContext)
     
     const {searchInput, setSearchInput} = useContext(AuthContext)
- 
-    const [darkMode, setDarkMode] = useState(JSON.parse(localStorage.getItem("darkMode")));
-
     const [isTopHeaderHidden, setIsTopHeaderHidden] = useState(false);
     const [isMainHeaderFixed, setIsMainHeaderFixed] = useState(false);
-  
+ 
+    const [darkMode, setDarkMode] = useState(true); // Default to light mode
 
-    useEffect(() => {
-        localStorage.setItem("darkMode", JSON.stringify(darkMode));
-        
-        if(darkMode){
-          document.documentElement.classList.add('dark')
-        
-        }
-        else{
-          document.documentElement.classList.remove('dark')
-             
-        }
+  // Check localStorage after mounting
+  useEffect(() => {
+    const storedDarkMode = localStorage.getItem("darkMode");
+    if (storedDarkMode !== null) {
+      setDarkMode(JSON.parse(storedDarkMode)); // Restore previous theme
+    } else {
+      setDarkMode(true); // Default to dark mode if no preference is saved
+    }
+  }, []);
 
-        
-      }, [darkMode])
+  useEffect(() => {
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
       
       const logoutHandler = async (e) => {
      
@@ -96,7 +98,7 @@ export const Header = () => {
         };
       }, []);
   return (
-    <nav className='relative z-50'>
+    <nav className='relative z-[1000]'>
         <div className={`bg-ccpurple w-full flex justify-center items-center p-2   ${isTopHeaderHidden? 'opacity-0 transition-all duration-[2s] ease' : 'opacity-100 transition-all duration-[1s] ease-in'}`} >
             <p className='text-[#FAFAFA] text-sm text-center md:text-md'>Summer Sale For All T-Shirt And Free Express Delivery - OFF 50%! <span><button className='border-b ml-2'>ShopNow</button></span></p>
         </div>
@@ -108,11 +110,11 @@ export const Header = () => {
             {/* mobile menu */}
           
              {/* hamburger */}
-             <div onClick={()=> setSideBarOpen(prev=> !prev)} className=' flex justify-center items-center '>
-<div className='lg:hidden cursor-pointer'>
+             <div  className=' flex justify-center items-center '>
+<div className='lg:hidden cursor-pointer' onClick={()=> setSideBarOpen(prev=> !prev)}>
 
              <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none">
-  <path d="M4 17.27V16.27H20V17.27H4ZM4 12.5V11.5H20V12.5H4ZM4 7.73V6.73H20V7.73H4Z" fill="#7D3261" />
+  <path d="M4 17.27V16.27H20V17.27H4ZM4 12.5V11.5H20V12.5H4ZM4 7.73V6.73H20V7.73H4Z" fill="#7D3261"  />
 </svg>
 </div>
                 <div className='flex items-center'>

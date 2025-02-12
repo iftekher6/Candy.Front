@@ -7,6 +7,8 @@ import { useTitle } from '../hooks/useTitle';
 
 
 import Banner from '../components/Banner';
+import BestSelling from '../components/BestSelling';
+import NewArrivals from '../components/NewArrivals';
 
 
 
@@ -46,6 +48,8 @@ export const Home = () => {
       <section className='flex justify-center gap-2   flex-wrap '>
         <Banner/>
         <Card />
+        <BestSelling/>
+        <NewArrivals/>
      
 
       </section>

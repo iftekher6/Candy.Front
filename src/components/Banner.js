@@ -1,9 +1,9 @@
-import banner from '../assets/banner.png'
+import banner from '../assets/banner.jpg'
 
 const Banner = ()=>{
 
     return(
-        <div className='md:max-w-6xl mb-[100px] mt-[-70px]'>
+        <div className='md:max-w-full mb-[100px] mt-[-70px]'>
             <img src={banner} alt='banner'/>
         </div>
     )

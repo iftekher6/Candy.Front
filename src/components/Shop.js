@@ -9,7 +9,7 @@ const Shop = ()=>{
    const {data} = useAllProducts()
       
     return(
-<div className=" flex flex-col gap-2  p-2 border-[#CCC] b-l-1">
+<div >
     {/* {data.length} products found */}
   <CardInner product={data}/>
  

@@ -1,6 +1,7 @@
 import './App.css';
 
 import { Footer } from './components';
+import BestSelling from './components/BestSelling';
 
 import { Header } from './components/Header';
 import NewArrivals from './components/NewArrivals';
@@ -16,8 +17,9 @@ function App() {
       <Header/> 
       <SideBar/>
       <AllRoutes/>
+     
       
-      <NewArrivals/>
+      {/* <NewArrivals/> */}
    
       <Footer/>
     </div>

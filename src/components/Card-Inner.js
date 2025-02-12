@@ -2,6 +2,8 @@ import React, {  useContext } from 'react'
 
 import { AuthContext } from '..';
 import {  Link, useLocation} from 'react-router-dom';
+import star from '../assets/star.svg'
+import ellipse from '../assets/ellipse.svg'
 
 // import { ErrorBoundary } from 'react-error-boundary';
 
@@ -40,16 +42,14 @@ const CardInner = ({product}) => {
    
  
   return (
-  <div className={`flex ${location.pathname ==='/shop' ? 'flex-wrap': ''}  gap-6`}>
-             
-             
-            
+  <div className={`flex  ${location.pathname ==='/shop' ? 'flex-wrap gap-y-[20px] sm:gap-y-[60px] md:gap-y-[75px]': ''} gap-2 sm:gap-7  `}>
+
    {
       product?.map(prod=>(
         <Link to={`${location.pathname === '/shop'? `/shop/productPage/${prod.name}` :  `/productPage/${prod.name}`}`}>
         
-        <div key={prod._id} onClick={()=> setProductDetails(prod)}  className='relative flex flex-col h-[300px] w-[200px] gap-3 mb-[5px] '>
-         <img src={prod.image} className='relative w-full border border-solid border-[#B1B1B1] p-2' alt={prod.name}/>
+        <div key={prod._id} onClick={()=> setProductDetails(prod)}  className='relative flex flex-col h-[300px] w-[150px]  sm:w-[190px] md:w-[200px] gap-3 mb-[5px]'>
+         <img src={prod.image} className='relative w-full border border-solid border-[#B1B1B1] ' alt={prod.name}/>
         <span className='bg-ccpurple px-2 absolute top-3  left-2 rounded-[3px] text-white font-[300] text-sm'>-20%</span>
         <div className='absolute  bg-white rounded-[50%] shadow top-1 right-2 p-1'>
           {/* <img src={loveIcon} /> */}
@@ -61,9 +61,9 @@ const CardInner = ({product}) => {
         <div>
             <h1 className='font-[600]'>{prod.name}</h1>
             <span className='text-[#7A7A7A] font-[500]'>{prod.description}</span>
-       <div className='flex gap-2'>
-        <span>4.8</span>
-        <span>1288 Sold</span>
+       <div className='flex gap-3 '>
+        <span className='flex justify-center items-center gap-1'><span>4.8</span> <img src={star} className=' w-4'/></span>
+        <span className='flex gap-1'><img src={ellipse}/>1288 Sold</span>
        </div>
        <span className='font-[600]'>BDT {prod.price}</span>
         </div>

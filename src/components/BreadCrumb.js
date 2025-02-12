@@ -29,7 +29,7 @@ const Breadcrumb = () => {
               <span className="mx-2">/</span>
               {index === paths.length - 1 ? (
                 // The last segment is displayed without a link (final product name)
-                <span className="text-gray-900 font-semibold">{formatPath(path)}</span>
+                <span className="text-gray-900 font-semibold dark:text-[#FFF]">{formatPath(path)}</span>
               ) : (
                 // Links for each path segment
                 <Link to={url} className="hover:underline">{formatPath(path)}</Link>

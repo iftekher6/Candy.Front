@@ -1,4 +1,4 @@
-
+import bg from '../assets/bg.png'
 
 
 import {Link} from 'react-router-dom';
@@ -87,12 +87,16 @@ export const Card =() => {
 
   return (
   
-    <div className='flex w-[90%] md:max-w-7xl flex-col mx-auto mt-[-50px] '>
+    <div className='flex w-[90%] md:max-w-7xl  gap-y-4  flex-col mx-auto mt-[-50px] '>
 
        <div className='flex justify-between items-end mb-2'>
-        <div className='flex flex-col md:flex-row gap-2 md:gap-[90px] justify-center items-start'>
-
-            <h1 className='font-[600] text-2xl whitespace-nowrap md:text-3xl order-1'>Flash Sales</h1>
+    
+        <div className='relative '>
+           
+           <h1 className='font-[600] text-2xl whitespace-nowrap md:text-3xl relative z-[100]'>Flash Sale</h1>
+            <img src={bg} alt='bg' className='absolute bottom-1 w-[420px]'/>
+   
+           </div>
             {/* Timer */}
             {/* <div className='flex gap-6 md:order-2 '>
                 <div className='flex flex-col'>
@@ -122,7 +126,8 @@ export const Card =() => {
                 </div>
             
             </div> */}
-        </div>
+      
+        
 
         <Link to={'/shop'} >
         
@@ -136,7 +141,7 @@ export const Card =() => {
         </Link>   
 
         </div>
-        <div  className='flex overflow-x-hidden w-full' >
+        <div  className='flex overflow-hidden w-full h-[400px]' >
 
         <CardInner product={data}/>
 
