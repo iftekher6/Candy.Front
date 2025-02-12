@@ -45,15 +45,13 @@ export const Home = () => {
 //  error? <Skeleton/> :
  return (
 
-     <main className='max-w-7xl m-auto py-24 '>
-      <section className='flex justify-center gap-2   flex-wrap '>
+     <main className='max-w-7xl m-auto py-24'>
+      <section className='flex justify-center gap-2 flex-wrap '>
         <Banner/>
         <AllCategories/>
         <Card />
         <BestSelling/>
         <NewArrivals/>
-     
-
       </section>
       
     </main>

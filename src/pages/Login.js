@@ -101,7 +101,7 @@ import {  useNavigate, useLocation, Link } from 'react-router-dom';
               placeholder='Password '
             />
           </div>
-          <span className='relative left-[243px] top-[-10px] cursor-pointer text-sm'>Forget your password?</span>
+          {/* <span className='text-right w-full cursor-pointer text-sm bg-black'>Forget your password?</span> */}
           <button
             type="submit"
             className="relative w-full bg-ccpurple  text-white py-2 rounded-md hover:bg-[#7d1e59] focus:outline-none "

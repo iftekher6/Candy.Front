@@ -40,10 +40,10 @@ function ProductPage() {
             <div className='flex flex-col gap-5 items-start border-b-[1px] pb-5 border-dashed border-[#A3A3A3] '>
 
             <h1 className='font-[700] text-3xl text-black dark:text-[#FFFFFF]'>{name}</h1>
-            <div className='flex justify-around gap-[100px]'>
-              <div className='flex gap-2 justify-center items-center'>
-                <span className='line-through text-sm text-[#666666] dark:text-[#B1B1B1]'>BDT 700</span>
-                <span className='text-xl font-[600] text-black dark:text-[#FFFFFF]'>BDT{price}</span>
+            <div className='flex justify-around items-center gap-[100px]'>
+              <div className='flex flex-col md:flex-row gap-2 justify-center items-center'>
+                <span className='line-through text-md text-[#666666] dark:text-[#B1B1B1]'>BDT 700</span>
+                <span className='text-lg md:text-xl font-[600] text-black dark:text-[#FFFFFF]'>BDT{price}</span>
 
               </div>
               <div className='flex gap-3'>
@@ -72,8 +72,9 @@ function ProductPage() {
             {/* size */}
             <div className='flex flex-col gap-3 items-start'>
              <div className='flex justify-between w-full items-center '>
-             <span className='text-[#8F8F8F]'>Size: <span className='font-[600] text-black text-lg dark:text-[#B1B1B1]'>{sizePick}</span></span>
-             <button className='text-[#525252] border-b-[1px] border-[#525252]'>View Size Chart</button>
+             <span className='text-[#8F8F8F] dark:text-[#B1B1B1] flex justify-center items-center gap-1'>Size: 
+               <span className='font-[600] text-black text-lg dark:text-white'>{sizePick}</span></span>
+             <button className='text-[#525252] border-b-[1px] border-[#525252] dark:text-[#B1B1B1]'>View Size Chart</button>
              </div>
              <div className='flex gap-2 flex-wrap'>
               {sizes.map(size=>(
@@ -84,8 +85,8 @@ function ProductPage() {
              </div>
              {/* CART AND BUY NOW BUTTONS */}
              <div className='flex gap-2 mt-5'>
-              <button className='bg-ccpurple text-white px-[65px] rounded-md'>Add to Cart</button>
-              <button className='border-[#B8B8B8] border-[1px] px-7 py-2 rounded-md text-black dark:text-[#FFFFFF]'>Buy Now</button>
+              <button className='bg-ccpurple text-white px-[65px] rounded-md text-sm sm:text-[1rem] whitespace-nowrap'>Add to Cart</button>
+              <button className='border-[#B8B8B8] whitespace-nowrap text-sm sm:text-[1rem] border-[1px] px-5 py-2 rounded-md text-black dark:text-[#FFFFFF]'>Buy Now</button>
 
              </div>
             </div>

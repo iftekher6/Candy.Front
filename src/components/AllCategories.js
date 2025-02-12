@@ -36,7 +36,7 @@ const AllCategories = () =>{
     // const [activeID, setActiveID] = useState(null)
 
     return(
-        <section className="flex flex-col justify-center w-[90%] sm:max-w-6xl  mx-auto gap-2 mb-[80px]">
+        <section className="flex flex-col justify-center w-[90%] sm:max-w-6xl  mx-auto gap-6 mb-[80px]">
           <div className='relative '>
            
            <h1 className='font-[600] text-2xl whitespace-nowrap md:text-3xl relative z-[100]'>All Categories</h1>

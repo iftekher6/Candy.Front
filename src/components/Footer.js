@@ -7,7 +7,7 @@ export const Footer = () => {
   return (
     // <div>
     // #B1B1B1
-        <footer className="relative bottom-0 border-b-0  w-full flex flex-col bg-[#F8FAFC] dark:bg-[#232323] ">
+        <footer className="relative bottom-0 border-b-0  w-full flex flex-col bg-[#F8FAFC] dark:bg-[#232323]">
           {/* Parent */}
           <NewsLetter/>
            <div className='p-11 ml-5 mx-auto flex flex-wrap md:justify-center  items-center md:flex-row gap-[40px] md:gap-[55px] lg:gap-[100px] xl:gap-[180px] '>

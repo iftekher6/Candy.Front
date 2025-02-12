@@ -3,7 +3,7 @@ import bg from '../assets/bg.png'
 const NewArrivals = ()=>{
     
     return(
-    <section className='w-[90%] mt-10 mx-auto  sm:max-w-7xl h-[800px] sm:h-[900px] md:h-[550px] lg:h-[585px] '>
+    <section className='w-[90%] mt-10 mx-auto sm:max-w-7xl h-[800px] sm:h-[900px] md:h-[550px] lg:h-[585px]'>
         <div className='relative '>
            
         <h1 className='font-[600] text-2xl whitespace-nowrap md:text-3xl mb-3 relative z-[100]'>New Arrivals</h1>
