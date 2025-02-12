@@ -38,27 +38,27 @@ const Filter = () =>{
     //     '#53D4AE','#203CD1','#FF00C7','#FF97DC','#084029',
     //     '#7C7C7C','#272727','#FFFFFF']
     return(
-        <div className="flex flex-col gap-2 mx-auto min-w-[200px] sm:max-w-sm overflow-hidden">
+        <div className="flex flex-col gap-2 mx-auto min-w-[130px] sm:max-w-sm overflow-hidden">
         <h1 className="font-[600] font-poppins text-[#292929] dark:text-white text-2xl border-[#CCC]  border-b-[1px]  pb-4">Filter</h1>
         {/* Category */}
         {contents.map(content=> (
 
-        <div className="flex flex-col border-[#CCC]  border-b-[1px]  p-1 gap-1  rounded-md">
+        <div className="flex flex-col border-[#CCC]  border-b-[1px]  p-1 gap-1 ">
             <h1 className="text-[#292929] font-[400] dark:text-[#FFF] ">{content.h1}</h1>
 
-<div className={`flex flex-wrap ${content.input  ? 'flex-col justify-center items-start': 'flex justify-start items-center'}  gap-2`}>
+<div className={`flex flex-wrap ${content.input  ? 'flex-col justify-center items-start': 'flex justify-start items-center'}  gap-2 mb-1`}>
   {/* <input type="checkbox" id="allCheckbox" className="w-4 h-4 accent-blue-500`} /> */}
    {content.content.map((val, index)=> (
  
-  <label htmlFor="allCheckbox" className={`text-md flex gap-1 justify-center items-center font-poppins font-[300] text-gray-700 dark:text-[#FFF]`}>
+  <label htmlFor="allCheckbox" className={`text-md flex gap-1 justify-center items-center font-poppins font-[300] text-gray-700 dark:text-[#FFF] `}>
     {content.input}
     {content.h1 === 'Color' ? 
   ( <span onClick={()=> 
     {
       setColor(val)
-      setOpen(prev=> !prev)
+      setOpen(prev=> !prev) 
     }
- } className={`w-6 h-6 flex justify-center items-center border-[1px] border-[#7C7C7] rounded-full cursor-pointer` } style={{backgroundColor: val}}>{color === val && open &&  <FaCheck className='mx-auto h-3 text-ccpink'/>}</span>) : content.h1 === 'Size' ? <span className={`flex flex-col font-poppins font-[600] hover:bg-[#EBEBEB] border-[#E6E6E6] border-2 rounded-md px-5 py-[2px]` }>{val}</span>   :  <span className={`flex gap-1`}>{val}</span>  
+ } className={`w-6 h-6 flex justify-center items-center border-[1px] border-[#7C7C7] rounded-full cursor-pointer` } style={{backgroundColor: val}}>{color === val && open &&  <FaCheck className='mx-auto h-3 text-ccpink'/>}</span>) : content.h1 === 'Size' ? <span className={`flex flex-col font-poppins font-[600] hover:bg-[#EBEBEB] border-[#E6E6E6] border-2 rounded-md px-1 text-sm md:px-5 md:py-[2px]` }>{val}</span>   :  <span className={`flex gap-1`}>{val}</span>  
   }
  
     </label>

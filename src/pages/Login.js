@@ -66,7 +66,7 @@ import {  useNavigate, useLocation, Link } from 'react-router-dom';
 
   // if (isAuthenticated) return <Navigate to={"/"} />;
     return (
-    <div  className="min-h-screen w-full md:max-w-4xl  mx-auto flex flex-col md:flex-row justify-center items-center mb-6 ">
+    <div  className="min-h-screen w-full md:max-w-4xl mx-auto flex flex-col md:flex-row justify-center items-center mb-6 ">
       <div className='w-1/2 '>
       
         <img src={darkLoginIcon} width={450} alt='icon' />

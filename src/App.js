@@ -1,12 +1,7 @@
 import './App.css';
-
 import { Footer } from './components';
-import BestSelling from './components/BestSelling';
-
 import { Header } from './components/Header';
-import NewArrivals from './components/NewArrivals';
 import SideBar from './components/Sidebar';
-
 import { AllRoutes } from './routes/AllRoutes'
 
 function App() {
@@ -17,10 +12,6 @@ function App() {
       <Header/> 
       <SideBar/>
       <AllRoutes/>
-     
-      
-      {/* <NewArrivals/> */}
-   
       <Footer/>
     </div>
     

@@ -5,7 +5,7 @@ import nagad from '../assets/nagad.svg'
 import shirt from '../assets/checkshirt.png'
 const Checkout = () => {
     return (
-        <div className=" sm:max-w-4xl flex flex-col sm:flex-row  gap-7 p-3 mx-auto mt-5">
+        <div className="sm:max-w-4xl flex flex-col sm:flex-row  gap-7 p-3 mx-auto mt-5">
             <div className="flex flex-col gap-3 md:w-1/2 ">
                 <h1 className="text-3xl">Billing Details</h1>
                 <form>
@@ -27,7 +27,7 @@ const Checkout = () => {
                 </form>
             </div>
             {/* second portion */}
-            <div className="flex flex-col p-5 border-[#B1B1B1] border-[1px] rounded-md md:w-1/2 h-[500px]">
+            <div className="flex flex-col p-5 border-[#B1B1B1] border-[1px] rounded-md md:w-1/2 h-[550px] md:h-[500px] md:mt-10">
                 <div className="flex justify-around items-center bg-grey-500 mb-3 mt-5 ">
                     <div className='flex gap-3 justify-center items-center'>
                         <img src={shirt} className='w-[55px]' alt='product-image'/>
@@ -60,7 +60,7 @@ const Checkout = () => {
                 <span className='font-poppins text-lg'>500 BDT</span>
             </div>
 
-            <div className="flex justify-between">
+            <div className="flex justify-between ">
                 <div className='flex justify-center items-center gap-2'>
 
             <input type="checkbox" className="w-4 h-4 rounded-full border-[1px] border-grey-400 appearance-none"/>
@@ -83,9 +83,9 @@ const Checkout = () => {
                 </div>
           
             </div>
-            <div className='flex gap-2 h-[45px]'>
-         <input type='text' placeholder='Coupon Code' className='rounded-sm border-[#B8B8B8] p-2 border-[1px]' />
-         <button className='bg-ccpurple px-4 text-white rounded-sm'>Apply Coupon</button>
+            <div className='flex flex-col md:flex-row gap-2 '>
+         <input type='text' placeholder='Coupon Code' className='rounded-sm border-[#B8B8B8] p-2 border-[1px] sm:w-[17rem] h-12 md:w-full' />
+         <button className='bg-ccpurple w-full md:w-[8rem]  px-4 md:px-6 whitespace-nowrap flex justify-center items-center text-white h-12 rounded-sm text-sm'>Apply Coupon</button>
         </div>
         {/*  */}
         <button className='bg-ccpurple px-3 py-3 text-white mt-2 rounded-sm'>Proceed to checkout</button>

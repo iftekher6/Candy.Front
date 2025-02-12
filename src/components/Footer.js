@@ -10,7 +10,7 @@ export const Footer = () => {
         <footer className="relative bottom-0 border-b-0  w-full flex flex-col bg-[#F8FAFC] dark:bg-[#232323] ">
           {/* Parent */}
           <NewsLetter/>
-           <div className='p-11 ml-5 mx-auto flex flex-wrap md:justify-center   items-center md:flex-row gap-[50px] md:gap-[180px] '>
+           <div className='p-11 ml-5 mx-auto flex flex-wrap md:justify-center  items-center md:flex-row gap-[40px] md:gap-[55px] lg:gap-[100px] xl:gap-[180px] '>
            <div className='flex flex-col w-[200px] gap-4'>
             <img src={logo} className='w-full' alt='logo'/>
             <span className='text-sm'>Crafted for confidence, designed for every occasion.
@@ -62,7 +62,7 @@ Where fashion meets function, and trends become timeless.
             </div>
            </div>
           <div className='flex justify-center items-center p-4 h-[50px] border-t-2 border-b-0  w-full '>
-           <span className='text-sm'>© Copyright, {new Date().getFullYear()} All Rights Reserved by CottonCandy</span>
+           <span className='text-[0.625rem] sm:text-[0.875rem]'>© Copyright, {new Date().getFullYear()} All Rights Reserved by CottonCandy</span>
           </div>
         </footer>
 

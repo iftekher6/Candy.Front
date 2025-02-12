@@ -5,7 +5,7 @@ import Shop from "../components/Shop";
 const ShopPage = ()=>{
 
     return (
-     <div className="flex gap-[110px]  sm:gap-[60px] sm:max-w-6xl mx-auto p-10">
+     <div className="flex gap-[60px] w-full sm:gap-[60px] sm:max-w-6xl mx-auto p-4  sm:p-10">
         <div className="w-[30%]">
         <Filter/>
 

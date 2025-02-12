@@ -28,8 +28,8 @@ export  const Cart = () => {
       </section>
       <div className='flex justify-center md:justify-between md:space-y-0 mt-3 flex-wrap space-y-5'>
         <div className='flex gap-2 h-[45px]'>
-         <input type='text' placeholder='Coupon Code' className='rounded-sm border-[#B8B8B8] p-2 border-[1px]' />
-         <button className='bg-ccpurple px-4 text-white '>Apply Coupon</button>
+         <input type='text' placeholder='Coupon Code' className='rounded-sm border-[#B8B8B8] p-2 border-[1px] w-[10rem] md:w-full' />
+         <button className='bg-ccpurple px-4 md:px-10 whitespace-nowrap text-white rounded-sm'>Apply Coupon</button>
         </div>
         {/* Cart Total */}
         <div className='flex flex-col gap-2 border-[#B1B1B1] p-7  border-[1px] '>

@@ -48,7 +48,7 @@ const SideBar = ({open})=>{
 
   
     return(
-        <div className={`fixed top-0 bottom-0 left-0 transition-all duration-300 ease ${sideBarOpen? 'translate-x-0' : '-translate-x-full'}  w-96 p-5 bg-black flex flex-col z-[60] justify-start items-center `}>
+        <div className={`fixed top-0 bottom-0 left-0 transition-all duration-300 ease ${sideBarOpen? 'translate-x-0' : '-translate-x-full'}  w-96 p-5 bg-black flex flex-col z-[2000] justify-start items-center `}>
               <div className='flex justify-center items-center mt-[30px]'>
                 <Link to="/" className='object-cover'> 
                     {true? <img src={LogoD} className="h-10 mx-3 hhmd:cursor-pointer" alt="CottonCandyLogo" /> : <img src={LogoL} className="h-10 mx-3 hhmd:cursor-pointer" alt="CottonCandyLogo" /> }
@@ -81,7 +81,7 @@ const SideBar = ({open})=>{
 
        </li>
    </ul>  
-   <span className='text-2xl mt-[100px]' onClick={()=> setSideBarOpen(prev=> !prev)}>X</span>
+   <span className='text-2xl mt-[100px] cursor-pointer' onClick={()=> setSideBarOpen(prev=> !prev)}>X</span>
         </div>
     )
 }

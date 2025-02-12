@@ -9,6 +9,7 @@ import { useTitle } from '../hooks/useTitle';
 import Banner from '../components/Banner';
 import BestSelling from '../components/BestSelling';
 import NewArrivals from '../components/NewArrivals';
+import AllCategories from '../components/AllCategories';
 
 
 
@@ -47,6 +48,7 @@ export const Home = () => {
      <main className='max-w-7xl m-auto py-24 '>
       <section className='flex justify-center gap-2   flex-wrap '>
         <Banner/>
+        <AllCategories/>
         <Card />
         <BestSelling/>
         <NewArrivals/>

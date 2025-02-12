@@ -99,7 +99,7 @@ export const Header = () => {
       }, []);
   return (
     <nav className='relative z-[1000]'>
-        <div className={`bg-ccpurple w-full flex justify-center items-center p-2   ${isTopHeaderHidden? 'opacity-0 transition-all duration-[2s] ease' : 'opacity-100 transition-all duration-[1s] ease-in'}`} >
+        <div className={`bg-ccpurple w-full flex justify-center items-center p-2   ${isTopHeaderHidden? 'opacity-0 transition-all duration-[1s] ease' : 'opacity-100 transition-all duration-[1s] ease'}`} >
             <p className='text-[#FAFAFA] text-sm text-center md:text-md'>Summer Sale For All T-Shirt And Free Express Delivery - OFF 50%! <span><button className='border-b ml-2'>ShopNow</button></span></p>
         </div>
       {/* Parent DIV of MAIN NAVBAR */}
@@ -113,7 +113,7 @@ export const Header = () => {
              <div  className=' flex justify-center items-center '>
 <div className='lg:hidden cursor-pointer' onClick={()=> setSideBarOpen(prev=> !prev)}>
 
-             <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none">
+             <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 2 22 22" fill="none">
   <path d="M4 17.27V16.27H20V17.27H4ZM4 12.5V11.5H20V12.5H4ZM4 7.73V6.73H20V7.73H4Z" fill="#7D3261"  />
 </svg>
 </div>
@@ -126,10 +126,10 @@ export const Header = () => {
              </div>
              {/* end of logo and ham */}
                 {/* search bar */}
-                <div className="bg-white rounded-[10px] w-[100px] hidden  md:w-[320px] px-4 py-3 md:flex justify-start items-center  overflow-hidden gap-3">
+                <div className="bg-white rounded-[10px] w-[100px] hidden  md:w-[320px] px-4 py-3 md:flex justify-start items-center  overflow-hidden gap-3 cursor-pointer">
                     {/* <span className="sr-only">Search icon</span> */}
                     {/* <form onSubmit={searchHandler}> */}
-                        <img src={searchIcon} alt='search-icon' />
+                        <img src={searchIcon} alt='search-icon'/>
                         <input type="text" value={searchInput} onChange={searchHandler} name="searchh" className="w-full outline-none " placeholder="Search..." autoComplete="off"/>
                     {/* </form> */}
                 </div>
@@ -137,7 +137,7 @@ export const Header = () => {
                 <div className='flex gap-3 justify-center items-center'>
   {/* mobile search */}
   <div className='md:hidden'>
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 19 19" fill="none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 1 19 20" fill="none">
 <path d="M13.553 13.553C14.2086 12.8974 14.7287 12.119 15.0835 11.2624C15.4383 10.4058 15.6209 9.48769 15.6209 8.5605C15.6209 7.63331 15.4383 6.71519 15.0835 5.85858C14.7287 5.00196 14.2086 4.22362 13.553 3.568C12.8973 2.91237 12.119 2.39231 11.2624 2.03748C10.4058 1.68266 9.48765 1.50004 8.56046 1.50004C7.63327 1.50004 6.71515 1.68266 5.85854 2.03748C5.00192 2.39231 4.22359 2.91237 3.56796 3.568C2.24387 4.89209 1.5 6.68795 1.5 8.5605C1.5 10.4331 2.24387 12.2289 3.56796 13.553C4.89205 14.8771 6.68791 15.621 8.56046 15.621C10.433 15.621 12.2289 14.8771 13.553 13.553ZM13.553 13.553L18 18" stroke="#7D3261" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
 </svg>
                 </div>
